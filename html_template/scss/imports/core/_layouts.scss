@@ -1,0 +1,22 @@
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+:root{
+  font-size: 15px;
+}
+html,
+body {
+    font-family: $font;
+    font-size:16px;
+    counter-reset: number;
+    overscroll-behavior: none;
+    margin: 0;
+    user-select: none;
+    background-color: #f4f7f6;
+}
