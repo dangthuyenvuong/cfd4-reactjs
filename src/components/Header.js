@@ -3,41 +3,65 @@ import React from 'react'
 export default function Header() {
     return (
         <>
-            <header>
-                <div className="container-fluid">
-                    <div className="menu">
-                        <div className="burger">
+            <header id="header">
+                <div className="wrap">
+                    <div className="menu-hambeger">
+                        <div className="button">
                             <span />
                             <span />
                             <span />
                         </div>
-                        <div className="text">Menu</div>
+                        <span className="text">menu</span>
                     </div>
                     <a href="#" className="logo">
-                        <img src="/img/logo.svg" alt="black" />
+                        <img src="/img/logo.svg" alt="" />
+                        <h1>CFD</h1>
                     </a>
-                    <div className="user">
-                        <a href="#" className="btn btn-signin">Login</a>
-                        <a href="#" className="btn btn-register">Đăng ký</a>
+                    <div className="right">
+                        <div className="have-login">
+                            <div className="account">
+                                <a href="#" className="info">
+                                    <div className="name">Trần Lê Trọng Nghĩa</div>
+                                    <div className="avatar">
+                                        <img src="/img/avt.png" alt="" />
+                                    </div>
+                                </a>
+                            </div>
+                            <div className="hamberger">
+                            </div>
+                            <div className="sub">
+                                <a href="#">Khóa học của tôi</a>
+                                <a href="#">Thông tin tài khoản</a>
+                                <a href="#">Đăng xuất</a>
+                            </div>
+                        </div>
+                        {/* <div class="not-login bg-none">
+                    <a href="#" class="btn-register">Đăng nhập</a>
+                    <a href="login.html" class="btn main btn-open-login">Đăng ký</a>
+                </div> */}
                     </div>
                 </div>
             </header>
             <nav className="nav">
                 <ul>
-                    <li>
-                        <a href="#">Trang chủ</a>
+                    <li className="li_login">
+                        <a href="#">Đăng nhập</a>
+                        <a href="#">Đăng ký</a>
                     </li>
-                    <li>
-                        <a href="#">Khóa học</a>
+                    <li className="active">
+                        <a href="#">Trang chủ</a>
                     </li>
                     <li>
                         <a href="#">CFD Team</a>
                     </li>
                     <li>
-                        <a href="#">Hỏi đáp</a>
+                        <a href="#">Khóa Học</a>
                     </li>
                     <li>
-                        <a href="#">Hợp tác</a>
+                        <a href="#">Dự Án</a>
+                    </li>
+                    <li>
+                        <a href="#">Liên hệ</a>
                     </li>
                 </ul>
             </nav>

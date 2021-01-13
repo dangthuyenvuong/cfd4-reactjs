@@ -2,117 +2,155 @@ import React from 'react'
 
 export default function Review() {
     return (
-        <section className="section comment">
+        <section className="section-testimonial">
             <div className="container">
-                <div className="course">
-                    <h2 className="title">Cảm nhận</h2>
-                    <h2 className="type">Thành viên</h2>
+                <div className="textbox">
+                    <h2 className="main-title white">Học viên cảm nhận về CFD</h2>
                 </div>
-                <div className="comment-box">
-                    <div className="inner_comment-box">
+                <div className="testimonial">
+                    <div className="testimonial-item">
                         <div className="item">
                             <div className="text">
-                                <div className="text-item it1 js-comment-active">
+                                <div className="ct ct-1 active">
                                     <div className="info">
                                         <div className="name">
-                                            <h2>Tiến Tài</h2>
+                                            <h4>Tiến Tài</h4>
                                             <p>Thành viên CFD1</p>
                                         </div>
-                                        <div className="quotes">
-                                            <img src="/img/daunhay.svg" alt="" />
-                                        </div>
+                                        <div className="quotes"><img src="/img/quotes.svg" alt="" /></div>
                                     </div>
                                     <div className="content">
-                                        Mentor có tâm, tận tình. Mình tìm được hướng đi trong lập
-                                        trình front-end qua khóa học. Like cho 4 mentor.
-                        </div>
+                                        Mentor có tâm, tận tình. Mình tìm được hướng đi trong lập trình front-end qua
+                                        khóa học. Like cho 4 mentor.
+                      </div>
                                     <div className="bottom">
-                                        <span className="fb">
-                                            <img src="/img/facebook-app-symbol.svg" alt="" />
-                                        </span>
-                                        <span className="date"> 08/09/2020 </span>
+                                        <a href="#" target="_blank"><img src="/img/facebook.svg" alt="" /></a>
+                                        <span>09/10/2020</span>
                                     </div>
                                 </div>
-                                <div className="text-item it2">
+                                <div className="ct ct-2">
                                     <div className="info">
                                         <div className="name">
-                                            <h2>Nguyễn Thanh Tùng</h2>
+                                            <h4>Phạm Thành Trung</h4>
                                             <p>Thành viên CFD1</p>
                                         </div>
-                                        <div className="quotes">
-                                            <img src="/img/daunhay.svg" alt="" />
-                                        </div>
+                                        <div className="quotes"><img src="/img/quotes.svg" alt="" /></div>
                                     </div>
                                     <div className="content">
-                                        Khoá học này thực sự rất chất lượng. Mình từ một người làm Sale, chưa biết gì về HTML, CSS, JS, mà giờ code được 1 web hoàn chỉnh. Mentor thì hỗ trợ nhiệt tình, lên lớp học lý thuyết xong là thực chiến luôn, về nhà thì livestream sửa bài, có khi tới 1-2h sáng luôn. Sau khoá học thì được các mentor chia sẻ kinh nghiệm.
-                        </div>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin libero
+                                        id magna finibus, in maximus urna tincidunt. Nam at leo lacinia, interdum dolor
+                                        in, molestie lectus. Aenean porttitor purus at purus euismod tristique
+                      </div>
                                     <div className="bottom">
-                                        <span className="fb">
-                                            <img src="/img/facebook-app-symbol.svg" alt="" />
-                                        </span>
-                                        <span className="date"> 12/09/2020 </span>
+                                        <a href="#" target="_blank"><img src="/img/facebook.svg" alt="" /></a>
+                                        <span>01/10/2020</span>
                                     </div>
                                 </div>
-                                <div className="text-item it3">
+                                <div className="ct ct-3">
                                     <div className="info">
                                         <div className="name">
-                                            <h2>Nguyễn Anh Tuấn</h2>
+                                            <h4>Nguyễn Văn Tuấn</h4>
                                             <p>Thành viên CFD1</p>
                                         </div>
-                                        <div className="quotes">
-                                            <img src="/img/daunhay.svg" alt="" />
-                                        </div>
+                                        <div className="quotes"><img src="/img/quotes.svg" alt="" /></div>
                                     </div>
                                     <div className="content">
-                                        Mình đã từng tự học nhưng bị mất phương hướng trầm trọng, sau khóa học mình đã tự code được 2 dự án riêng, 4 mentor dạy và hỗ trợ học viên rất có tâm, chuyện livestream giải đáp thắc mắc cho học viên tới khuya là thường xuyên. Sau khóa học mình học được cách tạo giao diện sao cho đẹp tinh tế, thân thiện với người dùng.
-                        </div>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin libero
+                                        id magna finibus, in maximus urna tincidunt. Nam at leo lacinia, interdum dolor
+                                        in, molestie lectus. Aenean porttitor purus at purus euismod tristique
+                      </div>
                                     <div className="bottom">
-                                        <span className="fb">
-                                            <img src="/img/facebook-app-symbol.svg" alt="" />
-                                        </span>
-                                        <span className="date"> 21/09/2020 </span>
-                                    </div>
-                                </div>
-                                <div className="text-item it4">
-                                    <div className="info">
-                                        <div className="name">
-                                            <h2>Phạm Thành Trung</h2>
-                                            <p>Thành viên CFD1</p>
-                                        </div>
-                                        <div className="quotes">
-                                            <img src="/img/daunhay.svg" alt="" />
-                                        </div>
-                                    </div>
-                                    <div className="content">
-                                        Các mentor dạy có tâm, nhiệt tình. Mình là người chưa biết html và css, sau khóa học thì mình có thể tự tin code được giao diện theo thiết kế và cả việc xử lí các sự kiện bằng javascript và jquery.
-                        </div>
-                                    <div className="bottom">
-                                        <span className="fb">
-                                            <img src="/img/facebook-app-symbol.svg" alt="" />
-                                        </span>
-                                        <span className="date"> 02/10/2020 </span>
+                                        <a href="#" target="_blank"><img src="/img/facebook.svg" alt="" /></a>
+                                        <span>01/10/2020</span>
                                     </div>
                                 </div>
                             </div>
                             <div className="images">
-                                <div className="img">
-                                    <img src="/img/member-1.jpg" alt="" />
-                                </div>
-                                <div className="img">
-                                    <img src="/img/img-member2.jpg" alt="" />
-                                </div>
-                                <div className="img">
-                                    <img src="/img/img-member3.jpg" alt="" />
-                                </div>
-                                <div className="img">
-                                    <img src="/img/img-member4.jpg" alt="" />
+                                <div className="list">
+                                    <div className="carousel-cell">
+                                        <div className="img">
+                                            <picture>
+                                                <source media="(max-width: 767px)" srcSet="img/Intersect.png" />
+                                                <img data-flickity-lazyload="img/tes.jpg" alt="" />
+                                            </picture>
+                                        </div>
+                                        <div className="ct_m">
+                                            <div className="info">
+                                                <div className="name">
+                                                    <h4>Tiến Tài</h4>
+                                                    <p>Thành viên CFD1</p>
+                                                </div>
+                                                <div className="quotes"><img src="/img/quotes.svg" alt="" /></div>
+                                            </div>
+                                            <div className="content">
+                                                Mentor có tâm, tận tình. Mình tìm được hướng đi trong lập trình
+                                                front-end qua
+                                                khóa học. Like cho 4 mentor.
+                          </div>
+                                            <div className="bottom">
+                                                <a href="#" target="_blank"><img src="/img/facebook.svg" alt="" /></a>
+                                                <span>09/10/2020</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="carousel-cell">
+                                        <div className="img">
+                                            <picture>
+                                                <source media="(max-width: 767px)" srcSet="img/Intersect.png" />
+                                                <img data-flickity-lazyload="img/tes.jpg" alt="" />
+                                            </picture>
+                                        </div>
+                                        <div className="ct_m">
+                                            <div className="info">
+                                                <div className="name">
+                                                    <h4>Nguyễn Văn Tuấn</h4>
+                                                    <p>Thành viên CFD1</p>
+                                                </div>
+                                                <div className="quotes"><img src="/img/quotes.svg" alt="" /></div>
+                                            </div>
+                                            <div className="content">
+                                                Mentor có tâm, tận tình. Mình tìm được hướng đi trong lập trình
+                                                front-end qua
+                                                khóa học. Like cho 4 mentor.
+                          </div>
+                                            <div className="bottom">
+                                                <a href="#" target="_blank"><img src="/img/facebook.svg" alt="" /></a>
+                                                <span>09/10/2020</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="carousel-cell">
+                                        <div className="img">
+                                            <picture>
+                                                <source media="(max-width: 767px)" srcSet="img/Intersect.png" />
+                                                <img data-flickity-lazyload="img/tes.jpg" alt="" />
+                                            </picture>
+                                        </div>
+                                        <div className="ct_m">
+                                            <div className="info">
+                                                <div className="name">
+                                                    <h4>Phạm Thành Trung</h4>
+                                                    <p>Thành viên CFD1</p>
+                                                </div>
+                                                <div className="quotes"><img src="/img/quotes.svg" alt="" /></div>
+                                            </div>
+                                            <div className="content">
+                                                Mentor có tâm, tận tình. Mình tìm được hướng đi trong lập trình
+                                                front-end qua
+                                                khóa học. Like cho 4 mentor.
+                          </div>
+                                            <div className="bottom">
+                                                <a href="#" target="_blank"><img src="/img/facebook.svg" alt="" /></a>
+                                                <span>09/10/2020</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="list-dots">
-                        </div>
-                        <div className="button button__left" />
-                        <div className="button button__right" />
+                        <div className="dots" />
+                        <div className="btn_ctr prev" />
+                        <div className="btn_ctr next" />
                     </div>
                 </div>
             </div>

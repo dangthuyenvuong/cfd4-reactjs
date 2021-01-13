@@ -2,26 +2,33 @@ import React from 'react'
 
 export default function Gallery() {
     return (
-        <section className="section team">
-            <div className="container">
-                <div className="course">
-                    <h2 className="title">Chúng ta</h2>
-                    <h2 className="type">Là một team</h2>
+        <section className="section-gallery">
+            <div className="textbox">
+                <h2 className="main-title">Chúng ta là một team</h2>
+            </div>
+            <div className="list">
+                <img data-flickity-lazyload="img/img_team1.png" alt="" />
+                <img data-flickity-lazyload="img/img_team2.png" alt="" />
+                <img data-flickity-lazyload="img/img_team3.png" alt="" />
+                <img data-flickity-lazyload="img/img_team4.png" alt="" />
+                <img data-flickity-lazyload="img/img_team3.png" alt="" />
+                <img data-flickity-lazyload="img/img_team4.png" alt="" />
+                <img data-flickity-lazyload="img/img_team1.png" alt="" />
+                <img data-flickity-lazyload="img/img_team2.png" alt="" />
+                <img data-flickity-lazyload="img/img_team3.png" alt="" />
+                <img data-flickity-lazyload="img/img_team4.png" alt="" />
+                <img data-flickity-lazyload="img/img_team3.png" alt="" />
+                <div className="item carousel-cell">
+                    <img data-flickity-lazyload="img/img_team4.png" alt="" />
                 </div>
-                <div className="slider">
-                    <div className="slider--item">
-                        <img src="/img/slider1.jpg" alt="" />
-                    </div>
-                    <div className="slider--item">
-                        <img src="/img/slider2.jpg" alt="" />
-                    </div>
-                    <div className="slider--item">
-                        <img src="/img/slider3.png" alt="" />
-                    </div>
-                    <div className="slider--item">
-                        <img src="/img/slider4.jpg" alt="" />
-                    </div>
+            </div>
+            <div className="controls">
+                <div className="btn_ctr prev" />
+                <span>Trượt qua</span>
+                <div className="timeline">
+                    <div className="process" />
                 </div>
+                <div className="btn_ctr next" />
             </div>
         </section>
     )

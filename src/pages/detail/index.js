@@ -6,377 +6,315 @@ export default function Detail() {
     return (
         <>
             <Header />
-            <main>
-                <div className="banner__course">
-                    <div className="banner__course--inner">
-                        <h2>Thực chiến</h2>
-                        <h2>Front-End Căn Bản</h2>
-                        <div className="banner__course--info">
-                            <p className="info"> <span>Khai giảng:</span> 12/10/2020</p>
-                            <p className="info"> <span>Thời lượng:</span> 18 buổi</p>
-                        </div>
-                        <a href="#" className="btn btn-round">Đăng ký</a>
-                    </div>
-                    <div className="inner__bottom">
-                        <div className="video">
-                            <img src="/img/play.svg" alt="" />
-                            <span>Video giới thiệu</span>
-                        </div>
-                        <div className="price">
-                            4.000.000 VND
-            </div>
-                    </div>
-                </div>
-                <section className="content__course">
+            <main className="course-detail" id="main">
+                <section className="banner style2" style={{ '-background': '#cde6fb' }}>
                     <div className="container">
-                        <div className="info__teach">
-                            Many Laravel apps don’t warrant the complexity of a full front-end framework like Vue or React. In this series, we’ll walk through a handful of simple ways to add dynamic functionality to your apps.
-            </div>
-                        <div className="info__video">
-                            <h2 className="title">giới thiệu về khóa học</h2>
-                            <div className="video" style={{ backgroundImage: 'url(/img/video.jpg)' }}>
-                                <div className="btn-play">
-                                    <svg width={70} height={70} viewBox="0 0 79 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <ellipse cx="39.4761" cy="38.9106" rx="39.4673" ry="38.8686" fill="#F4F7F6" />
-                                        <path d="M49.3438 39.2343L35.0369 47.3691V31.0995L49.3438 39.2343Z" fill="#49C5B6" />
-                                    </svg>
-                                </div>
+                        <div className="info">
+                            <h1>Thực Chiến
+                front-end căn bản</h1>
+                            <div className="row">
+                                <div className="date"><strong>Khai giảng:</strong> 12/10/2020</div>
+                                <div className="time"><strong>Thời lượng:</strong> 18 buổi</div>
                             </div>
+                            <div className="btn white round" style={{ '-colorBtn': '#70b6f1' }}>đăng ký</div>
                         </div>
-                        <div className="info__course">
-                            <h2 className="title">nội dung khóa học</h2>
-                            <div className="item__course">
-                                <div className="item__course--tt">
-                                    <span className="day">
-                                        Ngày 1
-                  </span>
-                                    <span className="details">
-                                        Giới thiệu HTML, SEO, BEM.
-                  </span>
-                                </div>
-                                <div className="item__course--dropdown">
-                                    I'd like to demonstrate a powerful little pattern called “Server-Fetched Partials” that offers some tangible benefits over alternatives like VueJS for simple page interactions.
-                </div>
+                    </div>
+                    <div className="bottom">
+                        <div className="container">
+                            <div className="video">
+                                <div className="icon">
+                                    <img src="/img/play-icon-white.png" alt="" />
+                                </div> <span>giới thiệu</span>
                             </div>
-                            <div className="item__course">
-                                <div className="item__course--tt">
-                                    <span className="day">
-                                        Ngày 2
-                  </span>
-                                    <span className="details">
-                                        CSS, CSS3, Flexbox, Grid
-                  </span>
-                                </div>
-                                <div className="item__course--dropdown">
-                                    I'd like to demonstrate a powerful little pattern called “Server-Fetched Partials” that offers some tangible benefits over alternatives like VueJS for simple page interactions.
-                </div>
-                            </div>
-                            <div className="item__course">
-                                <div className="item__course--tt">
-                                    <span className="day">
-                                        Ngày 3
-                  </span>
-                                    <span className="details">
-                                        Media Queries
-                  </span>
-                                </div>
-                                <div className="item__course--dropdown">
-                                    I'd like to demonstrate a powerful little pattern called “Server-Fetched Partials” that offers some tangible benefits over alternatives like VueJS for simple page interactions.
-                </div>
-                            </div>
-                            <div className="item__course">
-                                <div className="item__course--tt">
-                                    <span className="day">
-                                        Ngày 4
-                  </span>
-                                    <span className="details">
-                                        Boostrap 4
-                  </span>
-                                </div>
-                                <div className="item__course--dropdown">
-                                    I'd like to demonstrate a powerful little pattern called “Server-Fetched Partials” that offers some tangible benefits over alternatives like VueJS for simple page interactions.
-                </div>
-                            </div>
-                            <div className="item__course">
-                                <div className="item__course--tt">
-                                    <span className="day">
-                                        Ngày 5
-                  </span>
-                                    <span className="details">
-                                        Thực hành dự án website Landing Page
-                  </span>
-                                </div>
-                                <div className="item__course--dropdown">
-                                    I'd like to demonstrate a powerful little pattern called “Server-Fetched Partials” that offers some tangible benefits over alternatives like VueJS for simple page interactions.
-                </div>
-                            </div>
-                            <div className="item__course">
-                                <div className="item__course--tt">
-                                    <span className="day">
-                                        Ngày 6
-                  </span>
-                                    <span className="details">
-                                        Cài đặt Grunt và cấu trúc thư mục dự án
-                  </span>
-                                </div>
-                                <div className="item__course--dropdown">
-                                    I'd like to demonstrate a powerful little pattern called “Server-Fetched Partials” that offers some tangible benefits over alternatives like VueJS for simple page interactions.
-                </div>
-                            </div>
+                            <div className="money">4.000.000 VND</div>
                         </div>
-                        <div className="required">
-                            <h2 className="title">
-                                yêu cầu cần có
-              </h2>
-                            <div className="row row-check">
-                                <div className="col-md-6">
-                                    Đã từng học qua HTML, CSS
-                </div>
-                                <div className="col-md-6">
-                                    Cài đặt phần mềm Photoshop,
-                                    Adobe illustrator, Skype
-                </div>
-                            </div>
-                            <h2 className="title">
-                                hình thức học
-              </h2>
-                            <div className="row row-check">
-                                <div className="col-md-6">
-                                    Học offline tại văn phòng, cùng Trần Nghĩa và 3 đồng nghiệp.
-                </div>
-                                <div className="col-md-6">
-                                    Dạy và thực hành thêm bài tập online
-                                    thông qua Skype.
-                </div>
-                                <div className="col-md-6">
-                                    Được các mentor và các bạn trong team CFD hổ trợ thông qua group CFD Facebook hoặc phần mềm điều kiển máy tính.
-                </div>
-                                <div className="col-md-6">
-                                    Thực hành 2 dự án thực tế với sự hướng dẫn của CFD Team.
-                </div>
-                            </div>
+                    </div>
+                </section>
+                <section className="section-2">
+                    <div className="container">
+                        <p className="des">Many Laravel apps don’t warrant the complexity of a full front-end framework like Vue or
+                        React. In this series, we’ll walk through a handful of simple ways to add dynamic functionality to
+              your apps.</p>
+                        <h2 className="title">giới thiệu về khóa học</h2>
+                        <div className="cover">
+                            <img src="/img/course-detail-img.png" alt="" />
                         </div>
-                        <div className="date-study">
-                            <h2 className="title">
-                                lịch học
-                <span>
-                                    *Lịch học và thời gian có thể thống nhất lại theo số động học viên.
-                </span>
-                            </h2>
-                            <p>
-                                <strong>Ngày bắt đầu: </strong> 23/11/2020 <br />
-                                <strong>Thời gian học: </strong> Thứ 2, Thứ 4, Thứ 6 từ 18h45-21h45
-              </p>
+                        <h3 className="title">nội dung khóa học</h3>
+                        <div className="accordion">
+                            <div className="accordion_title">
+                                <div className="date">Ngày 1</div>
+                                <h3>Giới thiệu HTML, SEO, BEM.</h3>
+                            </div>
+                            <div className="content">
+                                I'd like to demonstrate a powerful little pattern called “Server-Fetched Partials” that offers
+                                some tangible benefits over alternatives like VueJS for simple page interactions.
+              </div>
                         </div>
-                        <div className="teacher">
-                            <h2 className="title">
-                                Người dạy
-              </h2>
-                            <div className="teacher__info">
+                        <div className="accordion">
+                            <div className="accordion_title">
+                                <div className="date">Ngày 2</div>
+                                <h3>CSS, CSS3, Flexbox, Grid</h3>
+                            </div>
+                            <div className="content">
+                                I'd like to demonstrate a powerful little pattern called “Server-Fetched Partials” that offers
+                                some tangible benefits over alternatives like VueJS for simple page interactions.
+              </div>
+                        </div>
+                        <div className="accordion">
+                            <div className="accordion_title">
+                                <div className="date">Ngày 3</div>
+                                <h3>Media Queries</h3>
+                            </div>
+                            <div className="content">
+                                I'd like to demonstrate a powerful little pattern called “Server-Fetched Partials” that offers
+                                some tangible benefits over alternatives like VueJS for simple page interactions.
+              </div>
+                        </div>
+                        <div className="accordion">
+                            <div className="accordion_title">
+                                <div className="date">Ngày 4</div>
+                                <h3>Boostrap 4</h3>
+                            </div>
+                            <div className="content">
+                                I'd like to demonstrate a powerful little pattern called “Server-Fetched Partials” that offers
+                                some tangible benefits over alternatives like VueJS for simple page interactions.
+              </div>
+                        </div>
+                        <div className="accordion">
+                            <div className="accordion_title">
+                                <div className="date">Ngày 5</div>
+                                <h3>Thực hành dự án website Landing Page</h3>
+                            </div>
+                            <div className="content">
+                                I'd like to demonstrate a powerful little pattern called “Server-Fetched Partials” that offers
+                                some tangible benefits over alternatives like VueJS for simple page interactions.
+              </div>
+                        </div>
+                        <div className="accordion">
+                            <div className="accordion_title">
+                                <div className="date">Ngày 6</div>
+                                <h3>Cài đặt Grunt và cấu trúc thư mục dự án</h3>
+                            </div>
+                            <div className="content">
+                                I'd like to demonstrate a powerful little pattern called “Server-Fetched Partials” that offers
+                                some tangible benefits over alternatives like VueJS for simple page interactions.
+              </div>
+                        </div>
+                        <h3 className="title">yêu cầu cần có</h3>
+                        <div className="row row-check">
+                            <div className="col-md-6">Đã từng học qua HTML, CSS</div>
+                            <div className="col-md-6">Cài đặt phần mềm Photoshop,
+                Adobe illustrator, Skype</div>
+                        </div>
+                        <h3 className="title">hình thức học</h3>
+                        <div className="row row-check">
+                            <div className="col-md-6">Học offline tại văn phòng, cùng Trần Nghĩa và 3 đồng nghiệp.</div>
+                            <div className="col-md-6">Dạy và thực hành thêm bài tập online
+                thông qua Skype.</div>
+                            <div className="col-md-6">Được các mentor và các bạn trong team CFD hổ trợ thông qua group CFD Facebook
+                hoặc phần mềm điều khiển máy tính.</div>
+                            <div className="col-md-6">Thực hành 2 dự án thực tế với sự hướng dẫn của CFD Team.</div>
+                        </div>
+                        <h3 className="title">
+                            <div className="date-start">lịch học</div>
+                            <div className="sub">*Lịch học và thời gian có thể thống nhất lại theo số đông học viên.</div>
+                        </h3>
+                        <p>
+                            <strong>Ngày bắt đầu: </strong> 09/09/2020 <br />
+                            <strong>Thời gian học: </strong> Thứ 3 từ 18h45-21h45, Thứ 7 từ 12h-15h, Chủ nhật từ 15h-18h
+            </p>
+                        <h3 className="title">Người dạy</h3>
+                        <div className="teaches">
+                            <div className="teacher">
                                 <div className="avatar">
-                                    <img src="/img/avt1.jpg" alt="" />
+                                    <img src="/img/avatar-lg.png" alt="" />
                                 </div>
                                 <div className="info">
-                                    <div className="name">
-                                        TRẦN NGHĨA
-                  </div>
-                                    <div className="title">
-                                        Founder CFD &amp; Creative Front-End Developer
-                  </div>
-                                    <div className="intro">
-                                        My education, career, and even personal life have been molded by one simple principle; well designed information resonates with people and can change lives.I have a passion for making information resonate. It all starts with how people think. With how humans work. As humans we have learned how to read and write and while that is incredible, we are also already hard-wired to do some things a bit more "automatically"
-                  </div>
-                                    <div className="website">
-                                        <strong>Website:</strong> http://nghiatran.info
-                  </div>
+                                    <div className="name">TRẦN NGHĨA</div>
+                                    <div className="title">Founder CFD &amp; Creative Front-End Developer</div>
+                                    <p className="intro">
+                                        My education, career, and even personal life have been molded by one simple principle;
+                                        well
+                                        designed information resonates with people and can change lives.I have a passion for
+                                        making
+                                        information resonate. It all starts with how people think. With how humans work. As
+                                        humans
+                                        we have learned how to read and write and while that is incredible, we are also already
+                                        hard-wired to do some things a bit more "automatically"
+                  </p>
+                                    <p><strong>Website:</strong> <a href="#">http://nghiatran.info</a></p>
                                 </div>
                             </div>
                         </div>
-                        <div className="action">
-                            <div className="action-wrap">
-                                <div className="member">
-                                    <img src="/img/customer.svg" alt="" />
-                                    <span>12 bạn đã đăng ký</span>
-                                </div>
-                                <div className="btn btn-round">đăng ký</div>
-                            </div>
-                            <div className="btn btn-continue btn-share">
-                                <img src="/img/facebook-app-symbol.svg" alt="" />
-                                <span>Chia sẻ</span>
+                        <div className="bottom">
+                            <div className="user">
+                                <img src="/img/user-group-icon.png" alt="" /> 12 bạn đã đăng ký
+              </div>
+                            <div className="btn main btn-register round">đăng ký</div>
+                            <div className="btn-share btn overlay round btn-icon">
+                                <img src="/img/facebook.svg" alt="" />
                             </div>
                         </div>
                     </div>
                 </section>
-                <section className="section">
+                <section className="section-3">
                     <div className="container">
-                        <div className="course">
-                            <h2 className="title">Dự án</h2>
-                            <h2 className="type">học viên</h2>
-                            <div className="row">
-                                <div className="col-md-4 course__item">
-                                    <div className="course__item-img">
-                                        <img src="/img/img-7.jpg" alt="alter" />
-                                    </div>
-                                    <div className="course__item-info">
-                                        <div className="course__item-wrap">
-                                            <h2 className="course__item-title">
-                                                Furnitown
-                      </h2>
-                                            <p className="course__item-des">
-                                                One of the best corporate fashion brands in Sydney
-                      </p>
-                                        </div>
-                                        <div className="course__item-details">
-                                            <div className="teacher">
-                                                <div className="avatar">
-                                                    <img src="/img/avt.png" alt="" />
-                                                </div>
-                                                <div className="name">
-                                                    Trần Nghĩa
+                        <div className="textbox">
+                            <h3 className="sub-title">DỰ ÁN</h3>
+                            <h2 className="main-title">THÀNH VIÊN</h2>
                         </div>
+                        <div className="list row">
+                            <div className="col-md-4 course">
+                                <div className="wrap">
+                                    <a href="#" className="cover">
+                                        <img src="/img/img.png" alt="" />
+                                    </a>
+                                    <div className="info">
+                                        <a className="name" href="#">
+                                            React JS
+                    </a>
+                                        <p className="des">
+                                            One of the best corporate fashion brands in Sydney
+                    </p>
+                                    </div>
+                                    <div className="bottom">
+                                        <div className="teacher">
+                                            <div className="avatar">
+                                                <img src="/img/avt.png" alt="" />
                                             </div>
-                                            <a href="#" className="btn btn-register">Website</a>
+                                            <div className="name">Vương Đặng</div>
                                         </div>
+                                        <div className="register-btn">Đăng Ký</div>
                                     </div>
                                 </div>
-                                <div className="col-md-4 course__item">
-                                    <div className="course__item-img">
-                                        <img src="/img/img-8.jpg" alt="alter" />
+                            </div>
+                            <div className="col-md-4 course">
+                                <div className="wrap">
+                                    <a href="#" className="cover">
+                                        <img src="/img/img2.png" alt="" />
+                                    </a>
+                                    <div className="info">
+                                        <a className="name" href="#">
+                                            Animation
+                    </a>
+                                        <p className="des">
+                                            One of the best corporate fashion brands in Sydney
+                    </p>
                                     </div>
-                                    <div className="course__item-info">
-                                        <div className="course__item-wrap">
-                                            <h2 className="course__item-title">
-                                                GboxMB
-                      </h2>
-                                            <p className="course__item-des">
-                                                One of the best corporate fashion brands in Sydney
-                      </p>
-                                        </div>
-                                        <div className="course__item-details">
-                                            <div className="teacher">
-                                                <div className="avatar">
-                                                    <img src="/img/avt.png" alt="" />
-                                                </div>
-                                                <div className="name">
-                                                    Trần Nghĩa
-                        </div>
+                                    <div className="bottom">
+                                        <div className="teacher">
+                                            <div className="avatar">
+                                                <img src="/img/avt.png" alt="" />
                                             </div>
-                                            <a href="#" className="btn btn-register">Website</a>
+                                            <div className="name">Trần Nghĩa</div>
                                         </div>
+                                        <div className="register-btn">Đăng Ký</div>
                                     </div>
                                 </div>
-                                <div className="col-md-4 course__item">
-                                    <div className="course__item-img">
-                                        <img src="/img/img-9.jpg" alt="alter" />
+                            </div>
+                            <div className="col-md-4 course">
+                                <div className="wrap">
+                                    <a href="#" className="cover">
+                                        <img src="/img/img3.png" alt="" />
+                                    </a>
+                                    <div className="info">
+                                        <a className="name" href="#">
+                                            Scss, Grunt JS và Boostrap 4
+                    </a>
+                                        <p className="des">
+                                            One of the best corporate fashion brands in Sydney
+                    </p>
                                     </div>
-                                    <div className="course__item-info">
-                                        <div className="course__item-wrap">
-                                            <h2 className="course__item-title">
-                                                Kymco
-                      </h2>
-                                            <p className="course__item-des">
-                                                One of the best corporate fashion brands in Sydney
-                      </p>
-                                        </div>
-                                        <div className="course__item-details">
-                                            <div className="teacher">
-                                                <div className="avatar">
-                                                    <img src="/img/avt.png" alt="" />
-                                                </div>
-                                                <div className="name">
-                                                    Trần Nghĩa
-                        </div>
+                                    <div className="bottom">
+                                        <div className="teacher">
+                                            <div className="avatar">
+                                                <img src="/img/avt.png" alt="" />
                                             </div>
-                                            <a href="#" className="btn btn-register">Website</a>
+                                            <div className="name">Trần Nghĩa</div>
                                         </div>
+                                        <div className="register-btn">Đăng Ký</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section className="section related">
+                <section className="section-4">
                     <div className="container">
-                        <div className="course">
-                            <h2 className="title">Khoá học</h2>
-                            <h2 className="type">Liên quan</h2>
-                            <div className="row">
-                                <div className="col-md-4 course__item">
-                                    <div className="course__item-img">
-                                        <img src="/img/img-7.jpg" alt="alter" />
-                                    </div>
-                                    <div className="course__item-info">
-                                        <div className="course__item-wrap">
-                                            <h2 className="course__item-title">
-                                                Furnitown
-                      </h2>
-                                            <p className="course__item-des">
-                                                One of the best corporate fashion brands in Sydney
-                      </p>
-                                        </div>
-                                        <div className="course__item-details">
-                                            <div className="teacher">
-                                                <div className="avatar">
-                                                    <img src="/img/avt.png" alt="" />
-                                                </div>
-                                                <div className="name">
-                                                    Trần Nghĩa
+                        <div className="textbox">
+                            <h3 className="sub-title">Khóa học</h3>
+                            <h2 className="main-title">Liên quan</h2>
                         </div>
+                        <div className="list row">
+                            <div className="col-md-4 course">
+                                <div className="wrap">
+                                    <a href="#" className="cover">
+                                        <img src="/img/img.png" alt="" />
+                                    </a>
+                                    <div className="info">
+                                        <a className="name" href="#">
+                                            Front-end căn bản
+                    </a>
+                                        <p className="des">
+                                            One of the best corporate fashion brands in Sydney
+                    </p>
+                                    </div>
+                                    <div className="bottom">
+                                        <div className="teacher">
+                                            <div className="avatar">
+                                                <img src="/img/avt.png" alt="" />
                                             </div>
-                                            <a href="#" className="btn btn-register">Website</a>
+                                            <div className="name">Vương Đặng</div>
                                         </div>
+                                        <div className="register-btn">Đăng Ký</div>
                                     </div>
                                 </div>
-                                <div className="col-md-4 course__item">
-                                    <div className="course__item-img">
-                                        <img src="/img/img-8.jpg" alt="alter" />
+                            </div>
+                            <div className="col-md-4 course">
+                                <div className="wrap">
+                                    <a href="#" className="cover">
+                                        <img src="/img/img2.png" alt="" />
+                                    </a>
+                                    <div className="info">
+                                        <a className="name" href="#">
+                                            Front-end nâng cao
+                    </a>
+                                        <p className="des">
+                                            One of the best corporate fashion brands in Sydney
+                    </p>
                                     </div>
-                                    <div className="course__item-info">
-                                        <div className="course__item-wrap">
-                                            <h2 className="course__item-title">
-                                                GboxMB
-                      </h2>
-                                            <p className="course__item-des">
-                                                One of the best corporate fashion brands in Sydney
-                      </p>
-                                        </div>
-                                        <div className="course__item-details">
-                                            <div className="teacher">
-                                                <div className="avatar">
-                                                    <img src="/img/avt.png" alt="" />
-                                                </div>
-                                                <div className="name">
-                                                    Trần Nghĩa
-                        </div>
+                                    <div className="bottom">
+                                        <div className="teacher">
+                                            <div className="avatar">
+                                                <img src="/img/avt.png" alt="" />
                                             </div>
-                                            <a href="#" className="btn btn-register">Website</a>
+                                            <div className="name">Trần Nghĩa</div>
                                         </div>
+                                        <div className="register-btn">Đăng Ký</div>
                                     </div>
                                 </div>
-                                <div className="col-md-4 course__item">
-                                    <div className="course__item-img">
-                                        <img src="/img/img-9.jpg" alt="alter" />
+                            </div>
+                            <div className="col-md-4 course">
+                                <div className="wrap">
+                                    <a href="#" className="cover">
+                                        <img src="/img/img3.png" alt="" />
+                                    </a>
+                                    <div className="info">
+                                        <a className="name" href="#">
+                                            Laravel framework
+                    </a>
+                                        <p className="des">
+                                            One of the best corporate fashion brands in Sydney
+                    </p>
                                     </div>
-                                    <div className="course__item-info">
-                                        <div className="course__item-wrap">
-                                            <h2 className="course__item-title">
-                                                Kymco
-                      </h2>
-                                            <p className="course__item-des">
-                                                One of the best corporate fashion brands in Sydney
-                      </p>
-                                        </div>
-                                        <div className="course__item-details">
-                                            <div className="teacher">
-                                                <div className="avatar">
-                                                    <img src="/img/avt.png" alt="" />
-                                                </div>
-                                                <div className="name">
-                                                    Trần Nghĩa
-                        </div>
+                                    <div className="bottom">
+                                        <div className="teacher">
+                                            <div className="avatar">
+                                                <img src="/img/avt.png" alt="" />
                                             </div>
-                                            <a href="#" className="btn btn-register">Website</a>
+                                            <div className="name">Trần Nghĩa</div>
                                         </div>
+                                        <div className="register-btn">Đăng Ký</div>
                                     </div>
                                 </div>
                             </div>
