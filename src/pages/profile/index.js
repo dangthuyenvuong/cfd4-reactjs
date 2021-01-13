@@ -2,212 +2,268 @@ import React from 'react'
 
 export default function Profile() {
     return (
-        <main>
-            <section className="section top-info">
-                <div className="information">
+        <main className="profile" id="main">
+            <section>
+                <div className="top-info">
                     <div className="avatar">
-                        <img src="/img/avt1.jpg" alt="" />
+                        {/* <span class="text">H</span> */}
+                        <img src="/img/avatar-lg.png" alt="" />
+                        <div className="camera" />
                     </div>
-                    <div className="name">Trần Nghĩa</div>
-                    <p className="member">Thành viên của team CFD1-OFFLINE</p>
+                    <div className="name">trần nghĩa</div>
+                    <p className="des">Thành viên của team CFD1-OFFLINE</p>
                 </div>
                 <div className="container">
                     <div className="tab">
-                        <div className="tab__title">
-                            <a href="#" className="js-tab-active">Thông tin tài khoản</a>
-                            <a href="#">Khoá học của tôi</a>
+                        <div className="tab-title">
+                            <a href="#" className="active">Thông tin tài khoản</a>
+                            <a href="#">Khóa học của bạn</a>
                             <a href="#">Dự án đã làm</a>
                             <a href="#">Lịch sử thanh toán</a>
+                            <a href="#">Quản lý COIN của tôi</a>
                         </div>
-                        <div className="tab__content">
-                            <div className="tab__content-1 tabct active">
-                                <form action="/" method="POST">
-                                    <div className="field">
-                                        <label>Họ và Tên</label>
-                                        <input type="text" name="title" defaultValue="Tran Nghia" />
-                                    </div>
-                                    <div className="field">
-                                        <label>Số điện thoại*</label>
-                                        <input type="text" name="phone" defaultValue={'0989596813'} />
-                                    </div>
-                                    <div className="field">
-                                        <label>Email</label>
-                                        <input type="text" name="email" disabled defaultValue="trannghia2018@gmail.com" />
-                                    </div>
-                                    <div className="field">
-                                        <label>Facebook</label>
-                                        <input type="text" name="facebook" defaultValue="https://facebook.com" />
-                                    </div>
-                                    <div className="field">
-                                        <label>Skype</label>
-                                        <input type="text" name="skype" defaultValue="trannghia2018" />
-                                    </div>
-                                    <div className="btn-register btn-save">
-                                        LƯU LẠI
-                                    </div>
-                                </form>
+                        <div className="tab-content">
+                            <div className="tab1">
+                                <label>
+                                    <p>Họ và tên<span>*</span></p>
+                                    <input type="text" placeholder="Nguyễn Văn A" />
+                                </label>
+                                <label>
+                                    <p>Số điện thoại<span>*</span></p>
+                                    <input type="text" placeholder="0949******" />
+                                </label>
+                                <label>
+                                    <p>Email<span>*</span></p>
+                                    <input defaultValue="vuong.dang@dna.vn" disabled type="text" />
+                                </label>
+                                <label>
+                                    <p>Facebook<span>*</span></p>
+                                    <input type="text" placeholder="Facebook url" />
+                                </label>
+                                <label>
+                                    <p>Skype<span>*</span></p>
+                                    <input type="text" placeholder="Skype url" />
+                                </label>
+                                <div className="btn main rect">LƯU LẠI</div>
                             </div>
-                            <div className="tab__content-2 tabct" >
-                                <div className="course">
-                                    <a href="#" className="course__image">
-                                        <img src="/img/img-course-1.jpg" alt="" />
-                                    </a>
-                                    <div className="course__info">
-                                        <a href="#" className="course__info--name">front-end căn bản</a>
-                                        <p className="course__info--date">Khai giảng ngày 09/09/2019</p>
-                                        <div className="course__info--details">
-                                            <div className="item">
-                                                <img src="/img/clock.svg" alt="" />
-                                                <span>54 giờ</span>
-                                            </div>
-                                            <div className="item">
-                                                <span>25 video</span>
-                                            </div>
-                                            <div className="item">
-                                                <img src="/img/member.svg" alt="" />
-                                                <span>20 học viên</span>
-                                            </div>
+                            <div className="tab2">
+                                <div className="item">
+                                    <div className="cover">
+                                        <img src="/img/img3.png" alt="" />
+                                    </div>
+                                    <div className="info">
+                                        <a href="#" className="name">
+                                            front-end căn bản
+                      </a>
+                                        <div className="date">Khai giảng ngày 09/09/2019</div>
+                                        <div className="row">
+                                            <div className>
+                                                <img src="/img/clock.svg" alt="" className="icon" />54 giờ
+                        </div>
+                                            <div className>
+                                                <img src="/img/play.svg" alt="" className="icon" />25 video
+                        </div>
+                                            <div className>
+                                                <img src="/img/user.svg" alt="" className="icon" />20 học viên
+                        </div>
                                         </div>
-                                        <div className="progress">
-                                            <div className="line" />
-                                            <span>30%</span>
-                                        </div>
-                                        <div className="btn btn-round btn-continue">Tiếp tục học</div>
+                                        <div className="process">
+                                            <div className="line">
+                                                <div className="rate" style={{ width: '30%' }} />
+                                            </div>
+                        30%
+                      </div>
+                                        <div className="btn overlay round btn-continue">
+                                            Tiếp tục học
+                      </div>
                                     </div>
                                 </div>
-                                <div className="course">
-                                    <a href="#" className="course__image">
-                                        <img src="/img/img-course-2.jpg" alt="" />
-                                    </a>
-                                    <div className="course__info">
-                                        <a href="#" className="course__info--name">front-end nâng cao</a>
-                                        <p className="course__info--date">Khai giảng ngày 09/09/2019</p>
-                                        <div className="course__info--details">
-                                            <div className="item">
-                                                <img src="/img/clock.svg" alt="" />
-                                                <span>54 giờ</span>
-                                            </div>
-                                            <div className="item">
-                                                <span>25 video</span>
-                                            </div>
-                                            <div className="item">
-                                                <img src="/img/member.svg" alt="" />
-                                                <span>20 học viên</span>
-                                            </div>
+                                <div className="item">
+                                    <div className="cover">
+                                        <img src="/img/img7.png" alt="" />
+                                    </div>
+                                    <div className="info">
+                                        <a href="#" className="name">
+                                            front-end nâng cao
+                      </a>
+                                        <div className="date">Khai giảng ngày 09/09/2019</div>
+                                        <div className="row">
+                                            <div className>
+                                                <img src="/img/clock.svg" alt="" className="icon" />54 giờ
+                        </div>
+                                            <div className>
+                                                <img src="/img/play.svg" alt="" className="icon" />25 video
+                        </div>
+                                            <div className>
+                                                <img src="/img/user.svg" alt="" className="icon" />20 học viên
+                        </div>
                                         </div>
-                                        <div className="progress">
-                                            <div className="line" />
-                                            <span>30%</span>
-                                        </div>
-                                        <div className="btn btn-round btn-continue">Tiếp tục học</div>
+                                        <div className="process">
+                                            <div className="line">
+                                                <div className="rate" style={{ width: '30%' }} />
+                                            </div>
+                        30%
+                      </div>
+                                        <div className="btn overlay round btn-continue">
+                                            Tiếp tục học
+                      </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="tab__content-3 tabct" >
-                                <div className="list__project">
-                                    <div className="project">
-                                        <div className="project__image">
-                                            <img src="/img/img-project.jpg" alt="" />
-                                        </div>
-                                        <div className="project__info">
-                                            <div className="project__info--top">
-                                                <div className="project__info--title">
+                            <div className="tab3">
+                                <div className="row">
+                                    <div className="col-md-6 course">
+                                        <div className="wrap">
+                                            <a href="#" className="cover">
+                                                <img src="/img/img8.png" alt="" />
+                                            </a>
+                                            <div className="info">
+                                                <a href="#" className="name">
                                                     Furnitown
-                          </div>
-                                                <p className="project__info--des">
+                          </a>
+                                                <p className="des">
                                                     Dự án hoàn thành trong khóa CFD1 Offline của CFD Team.
                           </p>
                                             </div>
-                                            <div className="project__info--details">
+                                            <div className="bottom">
                                                 <div className="teacher">
                                                     <div className="avatar">
                                                         <img src="/img/avt.png" alt="" />
                                                     </div>
-                                                    <div className="name">
-                                                        Trần Nghĩa
-                            </div>
+                                                    <div className="name">Trần Nghĩa</div>
                                                 </div>
-                                                <a href="#" className="btn btn-register">Website</a>
+                                                <div className="register-btn">Website</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="project">
-                                        <div className="project__image">
-                                            <img src="/img/img-project.jpg" alt="" />
-                                        </div>
-                                        <div className="project__info">
-                                            <div className="project__info--top">
-                                                <div className="project__info--title">Gbox</div>
-                                                <p className="project__info--des">
+                                    <div className="col-md-6 course">
+                                        <div className="wrap">
+                                            <a href="#" className="cover">
+                                                <img src="/img/img8.png" alt="" />
+                                            </a>
+                                            <div className="info">
+                                                <a href="#" className="name">
+                                                    GboxMB
+                          </a>
+                                                <p className="des">
                                                     Dự án hoàn thành trong khóa CFD1 Offline của CFD Team.
-                                                </p>
+                          </p>
                                             </div>
-                                            <div className="project__info--details">
+                                            <div className="bottom">
                                                 <div className="teacher">
                                                     <div className="avatar">
                                                         <img src="/img/avt.png" alt="" />
                                                     </div>
-                                                    <div className="name">
-                                                        Trần Nghĩa
-                                                    </div>
+                                                    <div className="name">Trần Nghĩa</div>
                                                 </div>
-                                                <a href="#" className="btn btn-register">Website</a>
+                                                <div className="register-btn">Website</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="upload">
-                                    <button type="button" className="btn btn-upload">
-                                        <img src="/img/upload.svg" alt="" />
-                                        TẢI LÊN
-                                    </button>
+                                <div className="btn-wrap">
+                                    <div className="btn overlay btn-icon round">
+                                        <img src="/img/icon-upload.svg" alt="" /> Tải lên
+                    </div>
                                 </div>
                             </div>
-                            <div className="tab__content-4 tabct" >
-                                <div className="payment__table">
-                                    <div className="payment__row">
-                                        <p className="name">
-                                            Khóa học CFD1-offline
-                                        </p>
-                                        <p className="date">
-                                            09/09/2020
-                                        </p>
-                                        <p className="price">
-                                            3.500.000 VND
-                                        </p>
+                            <div className="tab4" >
+                                <div className="item itemhistory">
+                                    <div className="name">Khóa học CFD1-offline</div>
+                                    <div className="date">09/09/2020</div>
+                                    <div className="money">1.500.000 VND</div>
+                                </div>
+                                <div className="item itemhistory">
+                                    <div className="name">Khóa học CFD1-offline</div>
+                                    <div className="date">18/10/2020</div>
+                                    <div className="money">1.500.000 VND</div>
+                                </div>
+                                <div className="item itemhistory">
+                                    <div className="name">Khóa học CFD1-offline</div>
+                                    <div className="date">18/10/2020</div>
+                                    <div className="money">1.500.000 VND</div>
+                                </div>
+                                <div className="item itemhistory">
+                                    <div className="name">Khóa học CFD1-offline</div>
+                                    <div className="date">18/10/2020</div>
+                                    <div className="money">1.500.000 VND</div>
+                                </div>
+                            </div>
+                            <div className="tab5 cointab" >
+                                <div className="coininfo">
+                                    <div className="coininfo__box">
+                                        <h3><strong>Thông tin COIN</strong></h3>
+                                        <div className="coininfo__box-ct">
+                                            <div>
+                                                <img src="/img/cfd-coin.png" alt="" />
+                                                <p>Bạn có <strong>300</strong> COIN</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="payment__row">
-                                        <p className="name">
-                                            Khóa học CFD1-offline
-                                        </p>
-                                        <p className="date">
-                                            09/09/2020
-                                        </p>
-                                        <p className="price">
-                                            3.500.000 VND
-                                        </p>
+                                    <div className="coininfo__box">
+                                        <h3><strong>Đổi COIN</strong></h3>
+                                        <div className="coininfo__box-ct">
+                                            <label className="checkcontainer">
+                                                Voucher Tiki 100k
+                          <input type="radio" name="radio" />
+                                                <span className="checkmarkradio" />
+                                            </label>
+                                            <label className="checkcontainer">
+                                                Voucher Tiki 200k
+                          <input type="radio" name="radio" />
+                                                <span className="checkmarkradio" />
+                                            </label>
+                                            <label className="checkcontainer">
+                                                Voucher Tiki 500k
+                          <input type="radio" name="radio" />
+                                                <span className="checkmarkradio" />
+                                            </label>
+                                            <label className="checkcontainer">
+                                                Thẻ nạp điện thoại 100k
+                          <input type="radio" name="radio" />
+                                                <span className="checkmarkradio" />
+                                            </label>
+                                            <label className="checkcontainer">
+                                                Thẻ nạp điện thoại 200k
+                          <input type="radio" name="radio" />
+                                                <span className="checkmarkradio" />
+                                            </label>
+                                            <label className="checkcontainer">
+                                                Thẻ nạp điện thoại 500k
+                          <input type="radio" name="radio" />
+                                                <span className="checkmarkradio" />
+                                            </label>
+                                            <small><i>*Bạn có thể đổi COIN 1 lần</i></small>
+                                        </div>
+                                        <a href="javascript:void(0)" className="btn main">Đổi COIN</a>
                                     </div>
-                                    <div className="payment__row">
-                                        <p className="name">
-                                            Khóa học CFD1-offline
-                                         </p>
-                                        <p className="date">
-                                            09/09/2020
-                                         </p>
-                                        <p className="price">
-                                            3.500.000 VND
-                                         </p>
+                                </div>
+                                <div className="coinhistory">
+                                    <h3><strong>Lịch sử COIN</strong></h3>
+                                    {/* <p>Chưa sử dụng COIN</p> */}
+                                    <div className="itemhistory">
+                                        <div className="td"><strong>COIN</strong></div>
+                                        <div className="td"><strong>Thời gian</strong></div>
+                                        <div className="td"><strong>Nội dung</strong></div>
+                                        <div className="td"><strong>Trạng thái</strong></div>
                                     </div>
-                                    <div className="payment__row">
-                                        <p className="name">
-                                            Khóa học CFD1-offline
-                                        </p>
-                                        <p className="date">
-                                            09/09/2020
-                      </p>
-                                        <p className="price">
-                                            3.500.000 VND
-                      </p>
+                                    <div className="itemhistory">
+                                        <div className="td"><span className="coin red">-300</span></div>
+                                        <div className="td">09/09/2020</div>
+                                        <div className="td">Giới thiệu khóa học cho học viên mới</div>
+                                        <div className="td">Đã chấp nhận</div>
+                                    </div>
+                                    <div className="itemhistory">
+                                        <div className="td"><span className="coin">+300</span></div>
+                                        <div className="td">18/10/2020</div>
+                                        <div className="td">Dùng COIN để quy đổi sang Voucher Tiki</div>
+                                        <div className="td">Đã chấp nhận</div>
+                                    </div>
+                                    <div className="itemhistory">
+                                        <div className="td"><span className="coin red">-300</span></div>
+                                        <div className="td">18/10/2020</div>
+                                        <div className="td">Dùng COIN để đổi sang Thẻ nạp điện thoại</div>
+                                        <div className="td">Chờ duyệt</div>
                                     </div>
                                 </div>
                             </div>

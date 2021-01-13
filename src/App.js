@@ -10,7 +10,8 @@ import Profile from './pages/profile';
 
 function App() {
   // return <Detail />;
-  return <Profile />;
+  // return <Profile />;
+  return <Home />;
   // return <Register />;
 
 }
