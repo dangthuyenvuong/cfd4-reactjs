@@ -1,4 +1,5 @@
 import React from 'react'
+import img1 from '../assets/img/img1.png'
 
 export default function Course(props) {
     return (

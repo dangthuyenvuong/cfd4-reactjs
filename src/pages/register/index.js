@@ -1,8 +1,72 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 
+const style = {
+    inputError: { color: 'red', fontSize: 14 }
+}
+
 export default function Register() {
+    let [form, setForm] = useState({
+        username: '',
+        phone: '',
+        email: '',
+        fb: '',
+        payment: 'chuyen-khoan',
+        note: ''
+    })
+
+    let [error, setError] = useState({})
+
+    function inputChange(event) {
+        // let target = event.target;
+
+        // let val = target.value
+        // let name = target.getAttribute('name')
+
+
+        // form[event.target.getAttribute('name')] = event.target.value;
+
+        setForm({
+            ...form,
+            [event.target.getAttribute('name')]: event.target.value
+        })
+    }
+
+
+    function submitBtnClick() {
+        let error = {}
+        if (!form.username) {
+            error['username'] = 'Username khong duoc de trong'
+        }
+
+
+        if (!form.email) {
+            error['email'] = 'Email khong duoc de trong'
+        } else if (!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(form.email)) {
+            error['email'] = 'Email khong dung dinh dang'
+        }
+
+        if (!form.fb) {
+            error['fb'] = 'FB khong duoc de trong'
+        } else if (!/https?:\/\/(www\.)?facebook.com\/[-a-zA-Z0-9@:%._\+~#=]{1,256}/.test(form.fb)) {
+            error['fb'] = 'fb khong dung dinh dang'
+        }
+
+        if (!form.phone) {
+            error['phone'] = 'Phone khong duoc de trong'
+        } else if (!/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test(form.phone)) {
+            error['phone'] = 'Phone khong dung dinh dang'
+
+        }
+
+        setError(error)
+        if (Object.keys(error).length === 0) {
+            alert('thanh cong')
+        }
+
+    }
+
     return (
         <>
             <Header />
@@ -20,20 +84,32 @@ export default function Register() {
                             <div className="form">
                                 <label>
                                     <p>Họ và tên<span>*</span></p>
-                                    <input type="text" placeholder="Họ và tên bạn" />
+                                    <input type="text" placeholder="Họ và tên bạn" onChange={inputChange} name="username" value={form.username} />
                                 </label>
+                                {
+                                    error.username && <p className="error" style={style.inputError}>{error.username}</p>
+                                }
                                 <label>
                                     <p>Số điện thoại<span>*</span></p>
-                                    <input type="text" placeholder="Số điện thoại" />
+                                    <input type="text" placeholder="Số điện thoại" onChange={inputChange} name="phone" value={form.phone} />
                                 </label>
+                                {
+                                    error.phone && <p className="error" style={style.inputError}>{error.phone}</p>
+                                }
                                 <label>
                                     <p>Email<span>*</span></p>
-                                    <input type="text" placeholder="Email của bạn" />
+                                    <input type="text" placeholder="Email của bạn" onChange={inputChange} name="email" value={form.email} />
                                 </label>
+                                {
+                                    error.email && <p className="error" style={style.inputError}>{error.email}</p>
+                                }
                                 <label>
                                     <p>URL Facebook<span>*</span></p>
-                                    <input type="text" placeholder="https://facebook.com" />
+                                    <input type="text" placeholder="https://facebook.com" name="fb" onChange={inputChange} value={form.fb} />
                                 </label>
+                                {
+                                    error.fb && <p className="error" style={style.inputError}>{error.fb}</p>
+                                }
                                 <label className="disable">
                                     <p>Sử dụng COIN</p>
                                     <div className="checkcontainer">
@@ -56,9 +132,9 @@ export default function Register() {
                                 </label>
                                 <label>
                                     <p>Ý kiến cá nhân</p>
-                                    <input type="text" placeholder="Mong muốn cá nhân và lịch bạn có thể học." />
+                                    <input type="text" placeholder="Mong muốn cá nhân và lịch bạn có thể học." onChange={inputChange} name="note" value={form.note} />
                                 </label>
-                                <div className="btn main rect">đăng ký</div>
+                                <div className="btn main rect" onClick={submitBtnClick}>đăng ký</div>
                             </div>
                         </div>
                     </div>

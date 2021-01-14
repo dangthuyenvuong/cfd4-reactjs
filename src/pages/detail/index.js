@@ -3,11 +3,18 @@ import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 
 export default function Detail() {
+
+    function registerCLick() {
+        alert('1111')
+
+
+    }
+
     return (
         <>
             <Header />
             <main className="course-detail" id="main">
-                <section className="banner style2" style={{ '-background': '#cde6fb' }}>
+                <section className="banner style2" style={{ '--background': '#cde6fb' }}>
                     <div className="container">
                         <div className="info">
                             <h1>Thực Chiến
@@ -16,7 +23,7 @@ export default function Detail() {
                                 <div className="date"><strong>Khai giảng:</strong> 12/10/2020</div>
                                 <div className="time"><strong>Thời lượng:</strong> 18 buổi</div>
                             </div>
-                            <div className="btn white round" style={{ '-colorBtn': '#70b6f1' }}>đăng ký</div>
+                            <div className="btn white round" style={{ '--color-btn': '#70b6f1' }} onDoubleClick={registerCLick}>đăng ký</div>
                         </div>
                     </div>
                     <div className="bottom">
@@ -41,7 +48,7 @@ export default function Detail() {
                         </div>
                         <h3 className="title">nội dung khóa học</h3>
                         <div className="accordion">
-                            <div className="accordion_title">
+                            <div className="accordion__title">
                                 <div className="date">Ngày 1</div>
                                 <h3>Giới thiệu HTML, SEO, BEM.</h3>
                             </div>
@@ -51,7 +58,7 @@ export default function Detail() {
               </div>
                         </div>
                         <div className="accordion">
-                            <div className="accordion_title">
+                            <div className="accordion__title">
                                 <div className="date">Ngày 2</div>
                                 <h3>CSS, CSS3, Flexbox, Grid</h3>
                             </div>
@@ -61,7 +68,7 @@ export default function Detail() {
               </div>
                         </div>
                         <div className="accordion">
-                            <div className="accordion_title">
+                            <div className="accordion__title">
                                 <div className="date">Ngày 3</div>
                                 <h3>Media Queries</h3>
                             </div>
@@ -71,7 +78,7 @@ export default function Detail() {
               </div>
                         </div>
                         <div className="accordion">
-                            <div className="accordion_title">
+                            <div className="accordion__title">
                                 <div className="date">Ngày 4</div>
                                 <h3>Boostrap 4</h3>
                             </div>
@@ -81,7 +88,7 @@ export default function Detail() {
               </div>
                         </div>
                         <div className="accordion">
-                            <div className="accordion_title">
+                            <div className="accordion__title">
                                 <div className="date">Ngày 5</div>
                                 <h3>Thực hành dự án website Landing Page</h3>
                             </div>
@@ -91,7 +98,7 @@ export default function Detail() {
               </div>
                         </div>
                         <div className="accordion">
-                            <div className="accordion_title">
+                            <div className="accordion__title">
                                 <div className="date">Ngày 6</div>
                                 <h3>Cài đặt Grunt và cấu trúc thư mục dự án</h3>
                             </div>
