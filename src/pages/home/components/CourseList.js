@@ -3,6 +3,7 @@ import Course from '../../../components/Course'
 
 
 export default function CourseList() {
+
     return (
         <>
             <section className="section-courseoffline">

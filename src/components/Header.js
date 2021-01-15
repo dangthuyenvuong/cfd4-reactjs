@@ -1,6 +1,20 @@
 import React from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
 export default function Header() {
+    let history = useHistory();
+    function delayLink(e) {
+        e.preventDefault();
+        document.querySelector('.pageLoading').classList.add('active')
+        setTimeout(() => {
+            history.push(e.target.href?.replace(window.location.origin, '') || '/')
+        }, 200)
+        setTimeout(() => {
+            document.querySelector('.pageLoading').classList.remove('active')
+        }, 800)
+    }
+
+    console.log(history)
     return (
         <>
             <header id="header">
@@ -13,10 +27,10 @@ export default function Header() {
                         </div>
                         <span className="text">menu</span>
                     </div>
-                    <a href="#" className="logo">
+                    <Link onClick={delayLink} to="/" className="logo">
                         <img src="/img/logo.svg" alt="" />
                         <h1>CFD</h1>
-                    </a>
+                    </Link>
                     <div className="right">
                         <div className="have-login">
                             <div className="account">
@@ -30,9 +44,9 @@ export default function Header() {
                             <div className="hamberger">
                             </div>
                             <div className="sub">
-                                <a href="#">Khóa học của tôi</a>
-                                <a href="#">Thông tin tài khoản</a>
-                                <a href="#">Đăng xuất</a>
+                                <Link onClick={delayLink} to="/thong-tin-ca-nhan/khoa-hoc">Khóa học của tôi</Link>
+                                <Link onClick={delayLink} to="/thong-tin-ca-nhan">Thông tin tài khoản</Link>
+                                <Link onClick={delayLink} to="/">Đăng xuất</Link>
                             </div>
                         </div>
                         {/* <div class="not-login bg-none">
@@ -49,19 +63,19 @@ export default function Header() {
                         <a href="#">Đăng ký</a>
                     </li>
                     <li className="active">
-                        <a href="#">Trang chủ</a>
+                        <Link to="/">Trang chủ</Link>
                     </li>
                     <li>
-                        <a href="#">CFD Team</a>
+                        <Link to="/team">CFD Team</Link>
                     </li>
                     <li>
-                        <a href="#">Khóa Học</a>
+                        <Link to="/khoa-hoc">Khóa Học</Link>
                     </li>
                     <li>
-                        <a href="#">Dự Án</a>
+                        <Link to="/du-an">Dự Án</Link>
                     </li>
                     <li>
-                        <a href="#">Liên hệ</a>
+                        <Link to="/lien-he">Liên hệ</Link>
                     </li>
                 </ul>
             </nav>
