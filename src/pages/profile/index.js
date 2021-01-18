@@ -7,6 +7,8 @@ import Coin from './components/Coin'
 import Info from './components/Info'
 import { Redirect, Route, Switch } from 'react-router-dom'
 
+
+// FunctionComponent
 export default function Profile() {
 
     let login = true;
@@ -43,4 +45,9 @@ export default function Profile() {
             </section>
         </main>
     )
+}
+
+// ClassComponent
+class Profile2 extends React.Component {
+
 }

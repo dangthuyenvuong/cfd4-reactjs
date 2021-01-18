@@ -1,68 +1,138 @@
-import React, { useState } from 'react'
+import { CircularProgress } from '@material-ui/core';
+import React, { useEffect, useState } from 'react'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
+import useFormValidate from '../../hook/useFormValidate';
 
 const style = {
     inputError: { color: 'red', fontSize: 14 }
 }
 
 export default function Register() {
-    let [form, setForm] = useState({
+
+    let [loading, setLoading] = useState(false);
+
+
+    let { form, error, inputChange, submit } = useFormValidate({
         username: '',
         phone: '',
         email: '',
         fb: '',
         payment: 'chuyen-khoan',
         note: ''
+    }, {
+        rule: {
+            username: {
+                required: true
+            },
+            phone: {
+                pattern: 'phone'
+            },
+            email: {
+                pattern: 'email'
+            },
+            fb: {
+                pattern: 'url'
+            }
+        },
+        message: {
+            username: {
+                required: 'Họ và tên không được để trống'
+            },
+            phone: {
+                pattern: "Số điện thoại không đúng định dạng"
+            },
+            email: {
+                pattern: 'Email không đúng định dạng'
+            },
+            fb: {
+                pattern: 'FB URL không đúng định dạng'
+            }
+        }
     })
 
-    let [error, setError] = useState({})
-
-    function inputChange(event) {
-        // let target = event.target;
-
-        // let val = target.value
-        // let name = target.getAttribute('name')
 
 
-        // form[event.target.getAttribute('name')] = event.target.value;
 
-        setForm({
-            ...form,
-            [event.target.getAttribute('name')]: event.target.value
-        })
-    }
+    // useEffect(() => {
+    //     console.log('window click add')
+
+    //     function windowClick() {
+    //         console.log('window click', form)
+    //     }
+
+    //     // let timeInterl = setInterval(() => {
+    //     //     console.log(form)
+    //     // }, 1000)
+
+    //     window.addEventListener('click', windowClick)
+
+    //     return () => {
+    //         console.log('window click destroy')
+    //         window.removeEventListener('click', windowClick)
+    //     }
+    // }, [form])
+
+    // let [error, setError] = useState({})
+
+    // function inputChange(event) {
+    //     // let target = event.target;
+
+    //     // let val = target.value
+    //     // let name = target.getAttribute('name')
+
+
+    //     // form[event.target.getAttribute('name')] = event.target.value;
+
+    //     setForm({
+    //         ...form,
+    //         [event.target.getAttribute('name')]: event.target.value
+    //     })
+    // }
 
 
     function submitBtnClick() {
-        let error = {}
-        if (!form.username) {
-            error['username'] = 'Username khong duoc de trong'
-        }
 
 
-        if (!form.email) {
-            error['email'] = 'Email khong duoc de trong'
-        } else if (!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(form.email)) {
-            error['email'] = 'Email khong dung dinh dang'
-        }
+        // if (loading) {
+        //     alert('Ban khong the gui lien tuc')
+        //     return;
+        // }
+        // let error = {}
+        // if (!form.username) {
+        //     error['username'] = 'Username khong duoc de trong'
+        // }
 
-        if (!form.fb) {
-            error['fb'] = 'FB khong duoc de trong'
-        } else if (!/https?:\/\/(www\.)?facebook.com\/[-a-zA-Z0-9@:%._\+~#=]{1,256}/.test(form.fb)) {
-            error['fb'] = 'fb khong dung dinh dang'
-        }
 
-        if (!form.phone) {
-            error['phone'] = 'Phone khong duoc de trong'
-        } else if (!/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test(form.phone)) {
-            error['phone'] = 'Phone khong dung dinh dang'
+        // if (!form.email) {
+        //     error['email'] = 'Email khong duoc de trong'
+        // } else if (!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(form.email)) {
+        //     error['email'] = 'Email khong dung dinh dang'
+        // }
 
-        }
+        // if (!form.fb) {
+        //     error['fb'] = 'FB khong duoc de trong'
+        // } else if (!/https?:\/\/(www\.)?facebook.com\/[-a-zA-Z0-9@:%._\+~#=]{1,256}/.test(form.fb)) {
+        //     error['fb'] = 'fb khong dung dinh dang'
+        // }
 
-        setError(error)
+        // if (!form.phone) {
+        //     error['phone'] = 'Phone khong duoc de trong'
+        // } else if (!/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/.test(form.phone)) {
+        //     error['phone'] = 'Phone khong dung dinh dang'
+
+        // }
+
+        // setError(error)
+
+        let error = submit();
+        console.log(error)
         if (Object.keys(error).length === 0) {
-            alert('thanh cong')
+            setLoading(true)
+            setTimeout(() => {
+                // alert('dang ky thanh cong')
+                setLoading(false)
+            }, 1000)
         }
 
     }
@@ -134,7 +204,7 @@ export default function Register() {
                                     <p>Ý kiến cá nhân</p>
                                     <input type="text" placeholder="Mong muốn cá nhân và lịch bạn có thể học." onChange={inputChange} name="note" value={form.note} />
                                 </label>
-                                <div className="btn main rect" onClick={submitBtnClick}>đăng ký</div>
+                                <div className="btn main rect" onClick={submitBtnClick} >đăng ký {loading && <CircularProgress size={20} style={{ marginLeft: 20 }} />}</div>
                             </div>
                         </div>
                     </div>

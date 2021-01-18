@@ -12,6 +12,8 @@ import Form from './components/Form'
 import PopupLogin from '../../components/PopupLogin'
 
 export default function Home() {
+
+
     return (
         <main className="homepage" id="main">
             <PopupLogin />

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import img1 from '../assets/img/img1.png'
 
 export default function Course(props) {
@@ -37,7 +38,7 @@ export default function Course(props) {
                         </div>
                         <div className="name">Trần Nghĩa</div>
                     </div>
-                    <div className="register-btn">Đăng Ký</div>
+                    <Link to="/dang-ky" className="register-btn">Đăng Ký</Link>
                 </div>
             </div>
         </div>

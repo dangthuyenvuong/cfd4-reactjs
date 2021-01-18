@@ -14,7 +14,7 @@ export default function Header() {
         }, 800)
     }
 
-    console.log(history)
+    // console.log(history)
     return (
         <>
             <header id="header">

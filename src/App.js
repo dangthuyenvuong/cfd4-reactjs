@@ -22,6 +22,7 @@ function App() {
     <Loading />
     <Switch>
       <Route path="/thong-tin-ca-nhan" component={Profile} />
+      <Route path="/dang-ky" component={Register} />
       <Route path="/chi-tiet/:id">
         <Detail />
       </Route>
