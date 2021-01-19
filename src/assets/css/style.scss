@@ -8,25 +8,42 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 4s ease-in-out;
-    visibility: hidden;
     pointer-events: none;
 
     >div {
-        width: 0;
-        height: 0;
-        background: black;
+        width: 100px;
+        height: 100px;
+        background: #03afab;
         border-radius: 10000px;
-        transition: all .8s ease-in-out;
+        transition: transform .6s ease-in-out;
+        position: absolute;
+        transform: scale(0);
     }
 
-    &.active {
-        display: flex;
-        visibility: visible;
+    // &.active {
+    //     display: flex;
+    //     visibility: visible;
 
-        >div {
-            width: 10000px;
-            height: 10000px;
-        }
-    }
+    //     >div {
+    //         // width: 10000px;
+    //         // height: 10000px;
+    //     }
+    // }
+}
+
+
+.profile .tab .tab-content .tab1 label {
+    flex-wrap: wrap;
+}
+
+.error-input {
+    border-color: red !important;
+}
+
+.error-text {
+    color: red;
+    font-size: 13px !important;
+    width: 100% !important;
+    padding-left: 160px;
+    font-weight: 100;
 }

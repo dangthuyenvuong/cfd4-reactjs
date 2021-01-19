@@ -17,6 +17,7 @@ export default function Info() {
                 required: true
             },
             phone: {
+                required: true,
                 pattern: 'phone'
             },
             email: {
@@ -32,7 +33,7 @@ export default function Info() {
         },
         message: {
             fb: {
-                pattern: 'FB khôgn dúng dinh dạng'
+                pattern: 'FB không dúng dinh dạng'
             }
         }
     })
@@ -47,7 +48,7 @@ export default function Info() {
 
     return (
         <div className="tab1">
-            <Prompt message="Are you sure you want to leave?" />
+            {/* <Prompt message="Are you sure you want to leave?" /> */}
             <label>
                 <p>Họ và tên<span>*</span></p>
                 <input type="text" placeholder="Nguyễn Văn A" name="username" onChange={inputChange} value={form.username} />

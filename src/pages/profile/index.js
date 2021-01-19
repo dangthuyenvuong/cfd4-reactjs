@@ -5,7 +5,7 @@ import Project from './components/Project'
 import Payment from './components/Payment'
 import Coin from './components/Coin'
 import Info from './components/Info'
-import { Redirect, Route, Switch } from 'react-router-dom'
+import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom'
 
 
 // FunctionComponent
@@ -13,6 +13,7 @@ export default function Profile() {
 
     let login = true;
 
+    let { path } = useRouteMatch()
 
     if (!login) return <Redirect to="/" />
 
@@ -33,10 +34,10 @@ export default function Profile() {
                         <Menu />
                         <div className="tab-content">
                             <Switch>
-                                <Route path="/thong-tin-ca-nhan/khoa-hoc"><Course /></Route>
-                                <Route path="/thong-tin-ca-nhan/du-an"><Project /></Route>
-                                <Route path="/thong-tin-ca-nhan/lich-su-thanh-toan"><Payment /></Route>
-                                <Route path="/thong-tin-ca-nhan/coin"><Coin /></Route>
+                                <Route path={`${path}/khoa-hoc`}><Course /></Route>
+                                <Route path={`${path}/du-an`}><Project /></Route>
+                                <Route path={`${path}/lich-su-thanh-toan`}><Payment /></Route>
+                                <Route path={`${path}/coin`}><Coin /></Route>
                                 <Route><Info /></Route>
                             </Switch>
                         </div>
@@ -46,6 +47,7 @@ export default function Profile() {
         </main>
     )
 }
+
 
 // ClassComponent
 class Profile2 extends React.Component {

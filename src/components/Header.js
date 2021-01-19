@@ -1,17 +1,47 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
+let $ = window.$;
+
 export default function Header() {
+
+    useEffect(() => {
+
+        $('.menu-hambeger').on('click', function () {
+            $('body').toggleClass('menu-is-show');
+        });
+
+        $('#header nav ul').on('click', function (e) {
+            e.stopPropagation();
+        })
+        $('.overlay_nav').on('click', function (e) {
+            $('body').removeClass('menu-is-show');
+        });
+
+        $(document).keyup(function (e) {
+            if (e.key === "Escape") {
+                $('body').removeClass('menu-is-show');
+            }
+        });
+    }, [])
     let history = useHistory();
     function delayLink(e) {
         e.preventDefault();
-        document.querySelector('.pageLoading').classList.add('active')
+        let payloading = document.querySelector('.pageLoading');
+        let div = payloading.querySelector('.loading')
+
+
+        let scale = Math.sqrt(Math.pow(window.outerHeight, 2) + Math.pow(window.outerWidth, 2)) / 100 * 2
+        div.style.transform = `translate(-50%, -50%) scale(${scale})`
+        div.style.left = `${e.clientX}px`
+        div.style.top = `${e.clientY}px`
         setTimeout(() => {
             history.push(e.target.href?.replace(window.location.origin, '') || '/')
-        }, 200)
+            $('.overlay_nav').trigger('click')
+        }, 300)
         setTimeout(() => {
-            document.querySelector('.pageLoading').classList.remove('active')
-        }, 800)
+            div.style.transform = `translate(-50%, -50%) scale(${0})`
+        }, 600)
     }
 
     // console.log(history)
@@ -35,7 +65,7 @@ export default function Header() {
                         <div className="have-login">
                             <div className="account">
                                 <a href="#" className="info">
-                                    <div className="name">Trần Lê Trọng Nghĩa</div>
+                                    <div className="name">Đặng Thuyền Vương</div>
                                     <div className="avatar">
                                         <img src="/img/avt.png" alt="" />
                                     </div>
@@ -63,22 +93,23 @@ export default function Header() {
                         <a href="#">Đăng ký</a>
                     </li>
                     <li className="active">
-                        <Link to="/">Trang chủ</Link>
+                        <Link onClick={delayLink} to="/">Trang chủ</Link>
                     </li>
                     <li>
-                        <Link to="/team">CFD Team</Link>
+                        <Link onClick={delayLink} to="/team">CFD Team</Link>
                     </li>
                     <li>
-                        <Link to="/khoa-hoc">Khóa Học</Link>
+                        <Link onClick={delayLink} to="/khoa-hoc">Khóa Học</Link>
                     </li>
                     <li>
-                        <Link to="/du-an">Dự Án</Link>
+                        <Link onClick={delayLink} to="/du-an">Dự Án</Link>
                     </li>
                     <li>
-                        <Link to="/lien-he">Liên hệ</Link>
+                        <Link onClick={delayLink} to="/lien-he">Liên hệ</Link>
                     </li>
                 </ul>
             </nav>
+            <div class="overlay_nav"></div>
         </>
 
 

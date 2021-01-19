@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-let patternEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-let patternURL = /https?:\/\/(www\.)?\/[-a-zA-Z0-9@:%._\+~#=]{1,256}/
+let patternEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/gi;
+let patternURL = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g
 let patternPhone = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
 
 
@@ -17,6 +17,7 @@ export default function useFormValidate(initialValue, validate) {
     let [error, setError] = useState({})
 
     function submit() {
+        document.querySelectorAll('.error-input').forEach(e => e.classList.remove('error-input'))
         let { rule, message } = validate;
 
 
@@ -28,6 +29,7 @@ export default function useFormValidate(initialValue, validate) {
             if (r.required) {
                 if (!form[i]) {
                     errorObject[i] = message?.[i]?.required || 'Trường này không được để trống'
+                    continue
                 }
             }
 
@@ -42,6 +44,10 @@ export default function useFormValidate(initialValue, validate) {
                     errorObject[i] = message?.[i]?.pattern || 'Trường này không đúng định dạng yêu cầu'
                 }
             }
+        }
+
+        for (let i in errorObject) {
+            document.querySelector(`[name="${i}"]`).classList.add('error-input')
         }
 
         setError(errorObject);
