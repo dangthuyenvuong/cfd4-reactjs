@@ -1,0 +1,40 @@
+@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmNmM2M1NTI1Mjk0MTI4NTAzOGUwY2EiLCJlbWFpbCI6InRhaWh0MjIxQGdtYWlsLmNvbSIsInJ1bGUiOltdLCJleHBpcmVkX2F0IjoxNjQyNjc1ODU1NDE5LCJleHBpcmVkX2luIjozMTUzNjAwMDAwMCwiaWF0IjoxNjExMTM5ODU1LCJleHAiOjE2NDI2NzU4NTV9.ihhhAgpmZbS8F1D08pDYj68uSmVjgujIvNhRHvGiFjA
+
+POST http://localhost:8888/elearning/v4/login
+Content-Type: application/json
+
+{
+    "username": "taiht221@gmail.com",
+    "password": "qưeqwe"
+}
+
+####
+
+POST http://localhost:8888/register
+Content-Type: application/json
+
+{
+    "email": "demo@gmail.com",
+    "name": "Dang Thuyen Vuong",
+    "password": "qweqwe"
+}
+
+
+####
+POST http://localhost:8888/elearning/v4/profile/course
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+
+####
+
+POST http://localhost:8888/elearning/v4/profile/payment
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+
+###
+
+POST http://localhost:8888/elearning/v4/profile/coint
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}

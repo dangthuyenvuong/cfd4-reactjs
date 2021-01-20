@@ -9,14 +9,10 @@ import Special from './components/Special'
 import Review from './components/Review'
 import Gallery from './components/Gallery'
 import Form from './components/Form'
-import PopupLogin from '../../components/PopupLogin'
 
 export default function Home() {
-
-
     return (
         <main className="homepage" id="main">
-            <PopupLogin />
 
             <Banner />
             <CourseList />

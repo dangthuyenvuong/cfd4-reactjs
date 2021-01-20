@@ -21,6 +21,7 @@ import Team from './pages/team';
 
 function App() {
   return <BrowserRouter>
+    <PopupLogin />
     <Header />
     <Loading />
     <Switch>

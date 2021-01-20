@@ -62,7 +62,7 @@ export default function Header() {
                         <h1>CFD</h1>
                     </Link>
                     <div className="right">
-                        <div className="have-login">
+                        {/* <div className="have-login">
                             <div className="account">
                                 <a href="#" className="info">
                                     <div className="name">Đặng Thuyền Vương</div>
@@ -78,11 +78,11 @@ export default function Header() {
                                 <Link onClick={delayLink} to="/thong-tin-ca-nhan">Thông tin tài khoản</Link>
                                 <Link onClick={delayLink} to="/">Đăng xuất</Link>
                             </div>
+                        </div> */}
+                        <div class="not-login bg-none">
+                            <a href="#" class="btn-register">Đăng nhập</a>
+                            <a href="login.html" class="btn main btn-open-login">Đăng ký</a>
                         </div>
-                        {/* <div class="not-login bg-none">
-                    <a href="#" class="btn-register">Đăng nhập</a>
-                    <a href="login.html" class="btn main btn-open-login">Đăng ký</a>
-                </div> */}
                     </div>
                 </div>
             </header>
