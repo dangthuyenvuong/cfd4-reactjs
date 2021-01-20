@@ -6,6 +6,7 @@ import Payment from './components/Payment'
 import Coin from './components/Coin'
 import Info from './components/Info'
 import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom'
+import { useAuth } from '../../core/hook/useAuth'
 
 
 // FunctionComponent
@@ -14,8 +15,11 @@ export default function Profile() {
     let login = true;
 
     let { path } = useRouteMatch()
+    let auth = useAuth()
+
 
     if (!login) return <Redirect to="/" />
+
 
     return (
         <main className="profile" id="main">
@@ -26,7 +30,7 @@ export default function Profile() {
                         <img src="/img/avatar-lg.png" alt="" />
                         <div className="camera" />
                     </div>
-                    <div className="name">trần nghĩa</div>
+                    <div className="name">{auth.login.name}</div>
                     <p className="des">Thành viên của team CFD1-OFFLINE</p>
                 </div>
                 <div className="container">

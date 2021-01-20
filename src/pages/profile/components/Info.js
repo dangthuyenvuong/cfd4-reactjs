@@ -1,5 +1,6 @@
 import React from 'react'
 import { Prompt } from 'react-router-dom'
+import { useAuth } from '../../../hook/useAuth';
 import useFormValidate from '../../../hook/useFormValidate'
 
 export default function Info() {
@@ -45,6 +46,7 @@ export default function Info() {
             alert('thanh cong')
         }
     }
+
 
     return (
         <div className="tab1">

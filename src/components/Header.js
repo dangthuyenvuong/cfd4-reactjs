@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { Context } from '../App';
+import { useAuth } from '../core/hook/useAuth';
 
 let $ = window.$;
 
@@ -44,6 +46,11 @@ export default function Header() {
         }, 600)
     }
 
+    let context = useContext(Context)
+
+    let auth = useAuth();
+
+
     // console.log(history)
     return (
         <>
@@ -62,27 +69,31 @@ export default function Header() {
                         <h1>CFD</h1>
                     </Link>
                     <div className="right">
-                        {/* <div className="have-login">
-                            <div className="account">
-                                <a href="#" className="info">
-                                    <div className="name">Đặng Thuyền Vương</div>
-                                    <div className="avatar">
-                                        <img src="/img/avt.png" alt="" />
+                        {
+                            auth.login ? (
+                                <div className="have-login">
+                                    <div className="account">
+                                        <a href="#" className="info">
+                                            <div className="name">{auth.login.name}</div>
+                                            <div className="avatar">
+                                                <img src="/img/avt.png" alt="" />
+                                            </div>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-                            <div className="hamberger">
-                            </div>
-                            <div className="sub">
-                                <Link onClick={delayLink} to="/thong-tin-ca-nhan/khoa-hoc">Khóa học của tôi</Link>
-                                <Link onClick={delayLink} to="/thong-tin-ca-nhan">Thông tin tài khoản</Link>
-                                <Link onClick={delayLink} to="/">Đăng xuất</Link>
-                            </div>
-                        </div> */}
-                        <div class="not-login bg-none">
-                            <a href="#" class="btn-register">Đăng nhập</a>
-                            <a href="login.html" class="btn main btn-open-login">Đăng ký</a>
-                        </div>
+                                    <div className="hamberger">
+                                    </div>
+                                    <div className="sub">
+                                        <Link onClick={delayLink} to="/thong-tin-ca-nhan/khoa-hoc">Khóa học của tôi</Link>
+                                        <Link onClick={delayLink} to="/thong-tin-ca-nhan">Thông tin tài khoản</Link>
+                                        <a onClick={auth.logout} href="javascript:void()">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            ) :
+                                <div class="not-login bg-none">
+                                    <a href="#" class="btn-register" onClick={context.openPopupLogin}>Đăng nhập</a>
+                                    <a href="login.html" class="btn main btn-open-login">Đăng ký</a>
+                                </div>
+                        }
                     </div>
                 </div>
             </header>

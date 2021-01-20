@@ -1,4 +1,5 @@
 @TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmNmM2M1NTI1Mjk0MTI4NTAzOGUwY2EiLCJlbWFpbCI6InRhaWh0MjIxQGdtYWlsLmNvbSIsInJ1bGUiOltdLCJleHBpcmVkX2F0IjoxNjQyNjc1ODU1NDE5LCJleHBpcmVkX2luIjozMTUzNjAwMDAwMCwiaWF0IjoxNjExMTM5ODU1LCJleHAiOjE2NDI2NzU4NTV9.ihhhAgpmZbS8F1D08pDYj68uSmVjgujIvNhRHvGiFjA
+# @DOMAIN = http://cfd-reactjs.herokuapp.com
 @DOMAIN = http://cfd-reactjs.herokuapp.com
 
 

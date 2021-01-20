@@ -15,31 +15,68 @@ import Page404 from './pages/page404';
 import Contact from './pages/contact';
 import Demo from './pages/demo';
 import PopupLogin from './components/PopupLogin';
+import PopupRegister from './components/PopupRegister';
 import Loading from './components/Loading';
 import CourseList from './pages/home/components/CourseList';
 import Team from './pages/team';
+import React, { useRef } from 'react';
+import AuthProvider from './core/hook/useAuth';
+import PrivateRouter from './core/PrivateRouter';
+
+
+export const Context = React.createContext({});
 
 function App() {
-  return <BrowserRouter>
-    <PopupLogin />
-    <Header />
-    <Loading />
-    <Switch>
-      <Route path="/thong-tin-ca-nhan" component={Profile} />
-      <Route path="/dang-ky" component={Register} />
-      <Route path="/team" component={Team} />
-      <Route path="/khoa-hoc" component={CourseList} />
-      <Route path="/lien-he" component={Contact} />
-      <Route path="/du-an" component={Project} />
-      <Route path="/chi-tiet/:id" component={Detail} />
-      <Route path="/" exact component={Home} />
-      <Route component={Page404} />
-    </Switch>
+  let refLogin = useRef()
+  let refRegister = useRef()
 
-    <Footer />
-  </BrowserRouter>;
+  function openPopupRegister() {
+    refLogin.current.style.display = 'none'
+    refRegister.current.style.display = 'flex'
+  }
+
+  function closePopupRegister() {
+    refRegister.current.style.display = 'none'
+  }
+
+  function openPopupLogin() {
+    refLogin.current.style.display = 'flex'
+    refRegister.current.style.display = 'none'
+  }
+
+  function closePopupLogin() {
+    refLogin.current.style.display = 'none'
+  }
+
+  return <AuthProvider>
+    <Context.Provider value={{ openPopupLogin, closePopupLogin, openPopupRegister, closePopupRegister }}>
+      <BrowserRouter>
+        <PopupLogin ref={refLogin} />
+        <PopupRegister ref={refRegister} />
+        <Header />
+        <Loading />
+        <Switch>
+          <PrivateRouter path="/thong-tin-ca-nhan" component={Profile} />
+          <PrivateRouter path="/dang-ky" component={Register} />
+          <Route path="/team" component={Team} />
+          <Route path="/khoa-hoc" component={CourseList} />
+          <Route path="/lien-he" component={Contact} />
+          <Route path="/du-an" component={Project} />
+          <Route path="/chi-tiet/:id" component={Detail} />
+          <Route path="/" exact component={Home} />
+          <Route component={Page404} />
+        </Switch>
+
+        <Footer />
+      </BrowserRouter>
+    </Context.Provider>
+  </AuthProvider>;
   // return <Register />;
 
 }
 
 export default App;
+
+
+
+
