@@ -6,8 +6,8 @@ export default function Course(props) {
     return (
         <div className="col-md-4 course">
             <div className="wrap">
-                <a className="cover" href="#">
-                    <img src={props.thumbnail} alt="" />
+                <Link className="cover" to={`/chi-tiet/${props.slug}`}>
+                    <img src={props.thumbnail.link} alt="" />
                     <span className="badge b1">Đã kết thúc</span>
                     <div className="hover">
                         <div className="top">
@@ -22,23 +22,23 @@ export default function Course(props) {
                             <img src="/img/icon-viewmore.svg" alt="" />
                         </div>
                     </div>
-                </a>
+                </Link>
                 <div className="info">
-                    <a className="name" href="#">
-                        {props.name}
-                    </a>
+                    <Link className="name" to={`/chi-tiet/${props.slug}`}>
+                        {props.title}
+                    </Link>
                     <p className="des">
-                        {props.description}
+                        {props.short_description}
                     </p>
                 </div>
                 <div className="bottom">
                     <div className="teacher">
                         <div className="avatar">
-                            <img src="/img/avt.png" alt="" />
+                            <img src={props.teacher.avatar?.thumbnail?.['thumbnail-1'] || props.teacher.avatar.link} alt="" />
                         </div>
-                        <div className="name">Trần Nghĩa</div>
+                        <div className="name">{props.teacher.title}</div>
                     </div>
-                    <Link to="/dang-ky" className="register-btn">Đăng Ký</Link>
+                    <Link to={`/dang-ky/${props.slug}`} className="register-btn">Đăng Ký</Link>
                 </div>
             </div>
         </div>

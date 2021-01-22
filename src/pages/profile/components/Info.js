@@ -1,7 +1,5 @@
 import React from 'react'
-import { Prompt } from 'react-router-dom'
-import { useAuth } from '../../../hook/useAuth';
-import useFormValidate from '../../../hook/useFormValidate'
+import useFormValidate from '../../../core/hook/useFormValidate';
 
 export default function Info() {
 

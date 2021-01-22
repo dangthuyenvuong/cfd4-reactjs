@@ -57,12 +57,12 @@ function App() {
         <Loading />
         <Switch>
           <PrivateRouter path="/thong-tin-ca-nhan" component={Profile} />
-          <PrivateRouter path="/dang-ky" component={Register} />
+          <PrivateRouter path="/dang-ky/:slug" component={Register} />
           <Route path="/team" component={Team} />
           <Route path="/khoa-hoc" component={CourseList} />
           <Route path="/lien-he" component={Contact} />
           <Route path="/du-an" component={Project} />
-          <Route path="/chi-tiet/:id" component={Detail} />
+          <Route path="/chi-tiet/:slug" component={Detail} />
           <Route path="/" exact component={Home} />
           <Route component={Page404} />
         </Switch>

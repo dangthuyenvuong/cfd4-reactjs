@@ -2,7 +2,7 @@ import React from 'react'
 import Course from '../../../components/Course'
 
 
-export default function CourseList() {
+export default function CourseList({ offline = [], online = [] }) {
 
     return (
         <>
@@ -17,13 +17,9 @@ export default function CourseList() {
                         <h2 className="main-title">Khóa học Offline</h2>
                     </div>
                     <div className="list row">
-                        <Course name="Animation" description="One of the best corporate fashion brands in Sydney" thumbnail="/img/img1.png" />
-                        <Course name="Reactjs" description="ABC" thumbnail="/img/img2.png" />
-                        <Course name="Căn bản" description="XZY" thumbnail="/img/img3.png" />
-                        <Course name="Animation" description="One of the best corporate fashion brands in Sydney" thumbnail="/img/img1.png" />
-                        <Course name="Reactjs" description="ABC" thumbnail="/img/img2.png" />
-                        <Course name="Căn bản" description="XZY" thumbnail="/img/img3.png" />
-
+                        {
+                            offline.map((e, index) => <Course key={index} {...e} />)
+                        }
                     </div>
                 </div>
             </section>
@@ -33,9 +29,9 @@ export default function CourseList() {
                         <h2 className="main-title">Khóa học Online</h2>
                     </div>
                     <div className="list row">
-                        <Course name="Animation" description="One of the best corporate fashion brands in Sydney" thumbnail="/img/img1.png" />
-                        <Course name="Reactjs" description="ABC" thumbnail="/img/img2.png" />
-                        <Course name="Căn bản" description="XZY" thumbnail="/img/img3.png" />
+                        {
+                            online.map((e, index) => <Course key={index} {...e} />)
+                        }
                     </div>
                     <div className="text-deco">C</div>
                 </div>

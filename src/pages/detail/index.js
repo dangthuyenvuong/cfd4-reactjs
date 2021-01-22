@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouteMatch } from 'react-router-dom'
+import pageApi from '../../api/pageApi'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 
 export default function Detail() {
+
+    let routerMath = useRouteMatch();
+
+    useEffect(async () => {
+        let course = await pageApi.course_detail(routerMath.params.slug)
+        console.log(course)
+    }, [])
 
 
     let routerMatch = useRouteMatch()

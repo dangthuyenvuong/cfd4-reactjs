@@ -22,7 +22,6 @@ export default function AuthProvider({ children }) {
         }
     }
 
-
     function logout() {
         localStorage.removeItem('login')
         setLogin(null)

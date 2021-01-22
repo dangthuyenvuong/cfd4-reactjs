@@ -3,6 +3,7 @@ import reactDOM from 'react-dom'
 import { Context } from '../App'
 import { useAuth } from '../core/hook/useAuth'
 import useFormValidate from '../core/hook/useFormValidate'
+import userApi from '../api/userApi'
 
 const styles = {
     errorText: {
@@ -40,25 +41,21 @@ function PopupLogin(props, ref) {
 
     let auth = useAuth();
 
-    function _btnClick(e) {
+    async function _btnClick(e) {
         e.preventDefault();
 
         let error = submit();
         if (Object.keys(error).length === 0) {
-            console.log(form)
-            fetch('http://localhost:8888/elearning/v4/login', {
-                method: 'POST',
-                body: JSON.stringify(form),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(res => res.json())
-                .then(res => {
-                    if (res.data) {
-                        auth.loginAction(res.data)
-                        context.closePopupLogin()
-                    }
-                })
+
+            let res = await userApi.login(form)
+            if (res.data) {
+                auth.loginAction(res.data)
+                context.closePopupLogin()
+                // ........
+            }
+
+
+
         }
     }
 

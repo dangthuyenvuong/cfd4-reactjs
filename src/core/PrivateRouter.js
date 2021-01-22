@@ -13,6 +13,8 @@ export default function PrivateRouter(props) {
     }, [auth.login])
 
     if (auth.login) return <Route {...props} />
+
+
     return <div style={{ height: 500, display: 'flex' }}>
         <div style={{ margin: 'auto' }}>
             Bạn chưa đăng nhập để vào trang này

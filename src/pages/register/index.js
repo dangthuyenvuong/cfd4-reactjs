@@ -1,8 +1,11 @@
 import { CircularProgress } from '@material-ui/core';
 import React, { useEffect, useState } from 'react'
+import { useRouteMatch } from 'react-router-dom';
+import pageApi from '../../api/pageApi';
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
-import useFormValidate from '../../hook/useFormValidate';
+import LoadingApi from '../../components/LoadingApi';
+import useFormValidate from '../../core/hook/useFormValidate';
 
 const style = {
     inputError: { color: 'red', fontSize: 14 }
@@ -11,6 +14,18 @@ const style = {
 export default function Register() {
 
     let [loading, setLoading] = useState(false);
+    let [course, setCourse] = useState()
+
+    let routerMath = useRouteMatch();
+
+    useEffect(async () => {
+        let course = await pageApi.course_detail(routerMath.params.slug)
+        if (course.data) {
+            setCourse(course.data)
+        } else {
+            setCourse('notfound')
+        }
+    }, [])
 
 
     let { form, error, inputChange, submit } = useFormValidate({
@@ -137,19 +152,26 @@ export default function Register() {
 
     }
 
+
+    if (!course) return <LoadingApi />
+
+    if (course === 'notfound') return <LoadingApi>Khoa học không tồn tại</LoadingApi>
+
+    let money = new Intl.NumberFormat('vn').format(course.money)
+
     return (
-        <>
+        <LoadingApi>
             <Header />
             <main className="register-course" id="main">
                 <section>
                     <div className="container">
                         <div className="wrap container">
                             <div className="main-sub-title">ĐĂNG KÝ</div>
-                            <h1 className="main-title">Thực chiến front-end căn bản </h1>
+                            <h1 className="main-title">{course.title}</h1>
                             <div className="main-info">
-                                <div className="date"><strong>Khai giảng:</strong> 15/11/2020</div>
-                                <div className="time"><strong>Thời lượng:</strong> 18 buổi</div>
-                                <div className="time"><strong>Học phí:</strong> 6.000.000 VND</div>
+                                <div className="date"><strong>Khai giảng:</strong> {course.opening_time}</div>
+                                <div className="time"><strong>Thời lượng:</strong> {course.video_count} buổi</div>
+                                <div className="time"><strong>Học phí:</strong> {money} VND</div>
                             </div>
                             <div className="form">
                                 <label>
@@ -222,6 +244,7 @@ export default function Register() {
         </div> */}
             </main>
             <Footer />
-        </>
+
+        </LoadingApi>
     )
 }
