@@ -1,26 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
 
 
 import Banner from './components/Banner'
-import CourseList from './components/CourseList'
 import Special from './components/Special'
 import Review from './components/Review'
 import Gallery from './components/Gallery'
 import Form from './components/Form'
 import LoadingApi from '../../components/LoadingApi'
-
-// let string = 'asdfasdf'
-
-// try {
-//     string = JSON.parse(string)
-// } catch (err) {
-//     string = {}
-// }
-
-
-// console.log(string)
+import CourseList from '../../components/CourseList'
 
 export default function Home() {
 
@@ -51,7 +38,6 @@ export default function Home() {
         //         setGallery(res)
         //     })
     }, [])
-    console.log('render.....')
 
     if (!state) return <LoadingApi />
 

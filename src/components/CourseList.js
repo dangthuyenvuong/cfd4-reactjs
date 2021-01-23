@@ -1,5 +1,5 @@
 import React from 'react'
-import Course from '../../../components/Course'
+import Course from './Course'
 
 
 export default function CourseList({ offline = [], online = [] }) {

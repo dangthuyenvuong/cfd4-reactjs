@@ -17,11 +17,11 @@ import Demo from './pages/demo';
 import PopupLogin from './components/PopupLogin';
 import PopupRegister from './components/PopupRegister';
 import Loading from './components/Loading';
-import CourseList from './pages/home/components/CourseList';
 import Team from './pages/team';
 import React, { useRef } from 'react';
 import AuthProvider from './core/hook/useAuth';
 import PrivateRouter from './core/PrivateRouter';
+import Courselist from './pages/Courselist';
 
 
 export const Context = React.createContext({});
@@ -59,7 +59,7 @@ function App() {
           <PrivateRouter path="/thong-tin-ca-nhan" component={Profile} />
           <PrivateRouter path="/dang-ky/:slug" component={Register} />
           <Route path="/team" component={Team} />
-          <Route path="/khoa-hoc" component={CourseList} />
+          <Route path="/khoa-hoc" component={Courselist} />
           <Route path="/lien-he" component={Contact} />
           <Route path="/du-an" component={Project} />
           <Route path="/chi-tiet/:slug" component={Detail} />
