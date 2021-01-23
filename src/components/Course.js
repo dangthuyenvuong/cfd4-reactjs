@@ -8,7 +8,16 @@ export default function Course(props) {
             <div className="wrap">
                 <Link className="cover" to={`/chi-tiet/${props.slug}`}>
                     <img src={props.thumbnail.link} alt="" />
-                    <span className="badge b1">Đã kết thúc</span>
+                    {
+                        props.course_status === 'sap-khai-gian' ?
+                            <span className="badge b3">Sắp khai giảng</span>
+                            : props.course_status === 'da-ket-thuc' ?
+                                <span className="badge b1">Đã kết thúc</span>
+                                :
+                                <span className="badge b2">Đang diễn ra</span>
+
+                    }
+
                     <div className="hover">
                         <div className="top">
                             <div className="user">

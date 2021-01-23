@@ -80,3 +80,8 @@ export default App;
 
 
 
+/**
+ * delayLink:
+ * không hiệu ứng khi link đích ở trang hiện tại
+ * Loading dữ liệu rồi mới tắt hiệu ứng : để thêm biểu tượng login ở giữa cho sinh động, có thể sử dụng function để gọi khi loading xong
+ */

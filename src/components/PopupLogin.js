@@ -80,7 +80,7 @@ function PopupLogin(props, ref) {
 
                             <p>Nhớ mật khẩu</p>
                         </label>
-                        <a href="javascript:void(0)" className="forget" onClick={context.openPopupRegister}>Đăng ký</a>
+                        <a href="#" className="forget" onClick={e => { context.openPopupRegister(); e.preventDefault() }}>Đăng ký</a>
                     </div>
                     <div className="btn rect main btn-login" onClick={_btnClick}>đăng nhập</div>
                     <div className="text-register" style={{}}>
@@ -89,8 +89,8 @@ function PopupLogin(props, ref) {
                     <div>
                         <div className="btn btn-icon rect white btn-google">
                             <img src="img/google.svg" alt="" />
-                Google
-              </div>
+                             Google
+                        </div>
                     </div>
                     <div className="close" onClick={context.closePopupLogin}>
                         <img src="img/close-icon.png" alt="" />

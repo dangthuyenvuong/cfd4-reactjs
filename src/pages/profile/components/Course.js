@@ -13,16 +13,18 @@ export default function Course() {
 
     useEffect(async () => {
 
-        let res = await userApi.profile()
+        let res = await userApi.course()
         setCourse(res.data)
     }, [])
 
     if (!course) return <LoadingApi />
-    console.log(course)
     return (
         <div className="tab2">
             {
-                course.map((e, i) => <CourseItem key={i} {...e} />)
+                course.length === 0 ?
+                    <div> Bạn chưa đăng ký khóa học nào</div>
+                    :
+                    course.map((e, i) => <CourseItem key={i} {...e} />)
             }
         </div>
     )

@@ -89,9 +89,9 @@ export default function Header() {
                                     </div>
                                 </div>
                             ) :
-                                <div class="not-login bg-none">
-                                    <a href="#" class="btn-register" onClick={context.openPopupLogin}>Đăng nhập</a>
-                                    <a href="login.html" class="btn main btn-open-login">Đăng ký</a>
+                                <div className="not-login bg-none">
+                                    <a href="#" className="btn-register" onClick={context.openPopupLogin}>Đăng nhập</a>
+                                    <a href="login.html" className="btn main btn-open-login">Đăng ký</a>
                                 </div>
                         }
                     </div>
@@ -120,7 +120,7 @@ export default function Header() {
                     </li>
                 </ul>
             </nav>
-            <div class="overlay_nav"></div>
+            <div className="overlay_nav"></div>
         </>
 
 

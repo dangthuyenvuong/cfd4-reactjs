@@ -45,7 +45,6 @@ function PopupRegister(props, ref) {
         }
     })
     let context = useContext(Context)
-    console.log(context)
 
     let auth = useAuth();
 
@@ -94,7 +93,7 @@ function PopupRegister(props, ref) {
 
                             <p>Nhớ mật khẩu</p>
                         </label>
-                        <a href="javascript:void(0)" className="forget" onClick={context.openPopupLogin}>Đăng nhập</a>
+                        <a href="#" className="forget" onClick={(e) => { context.openPopupLogin(); e.preventDefault() }}>Đăng nhập</a>
                     </div>
                     <div className="btn rect main btn-login" onClick={_btnClick}>đăng nhập</div>
                     <div className="text-register" style={{}}>

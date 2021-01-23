@@ -21,6 +21,15 @@ export default {
             }
         }).then(res => res.json())
     },
+    course: () => {
+        let user = JSON.parse(localStorage.getItem('login'))
+        return fetch(`${domain}/elearning/v4/profile/course`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${user.token.accessToken}`
+            }
+        }).then(res => res.json())
+    },
     update: () => { },
     payment: () => { },
 }
