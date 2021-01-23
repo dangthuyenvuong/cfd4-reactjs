@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import LoadingApi from '../../components/LoadingApi';
 import CourseList from '../../components/CourseList';
+import pageApi from '../../api/pageApi';
 
 export default () => {
 
@@ -8,8 +9,7 @@ export default () => {
 
     useEffect(async () => {
 
-        let res = await fetch('http://localhost:8888/elearning/v4/home')
-        res = await res.json();
+        let res = await pageApi.courses()
         setState(res)
 
     }, [])

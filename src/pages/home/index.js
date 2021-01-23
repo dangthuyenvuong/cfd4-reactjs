@@ -8,15 +8,14 @@ import Gallery from './components/Gallery'
 import Form from './components/Form'
 import LoadingApi from '../../components/LoadingApi'
 import CourseList from '../../components/CourseList'
+import pageApi from '../../api/pageApi'
 
 export default function Home() {
 
     let [state, setState] = useState();
     useEffect(async () => {
 
-        let res = await fetch('http://localhost:8888/elearning/v4/home')
-        res = await res.json();
-        console.log(res)
+        let res = await pageApi.home()
         setState(res)
 
 
