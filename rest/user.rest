@@ -91,7 +91,7 @@ GET {{DOMAIN}}/elearning/v4/course/cfd5-react-js
 #### Gửi yêu cầu đăng ký khóa học dựa theo slug của khóa học và accessToken của user đang đăng nhập
 POST {{DOMAIN}}/elearning/v4/course-register/cfd5-react-js
 Content-Type: application/json
-Authorization: Bearer {{TOKEN}}
+Authorization: Bearer {{TOKEN_DEMO}}
 
 {
     "name": "ABC",
