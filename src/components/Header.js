@@ -76,7 +76,7 @@ export default function Header() {
                                         <a href="#" className="info">
                                             <div className="name">{auth.login.name}</div>
                                             <div className="avatar">
-                                                <img src="/img/avt.png" alt="" />
+                                                <img src={auth.login.avatar?.link || "/img/avatar-default.png"} alt="" />
                                             </div>
                                         </a>
                                     </div>
@@ -85,7 +85,7 @@ export default function Header() {
                                     <div className="sub">
                                         <Link onClick={delayLink} to="/thong-tin-ca-nhan/khoa-hoc">Khóa học của tôi</Link>
                                         <Link onClick={delayLink} to="/thong-tin-ca-nhan">Thông tin tài khoản</Link>
-                                        <a onClick={auth.logout} href="javascript:void()">Đăng xuất</a>
+                                        <a onClick={auth.logout}>Đăng xuất</a>
                                     </div>
                                 </div>
                             ) :

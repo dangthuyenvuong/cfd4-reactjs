@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Menu from './components/Menu'
 import Course from './components/Course'
 import Project from './components/Project'
@@ -7,11 +7,26 @@ import Coin from './components/Coin'
 import Info from './components/Info'
 import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom'
 import { useAuth } from '../../core/hook/useAuth'
+import userApi from '../../api/userApi'
+
+const styles = {
+    inputFile: {
+        display: 'block',
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        opacity: 0,
+        zIndex: 100,
+    }
+}
 
 
 // FunctionComponent
 export default function Profile() {
 
+    let avatarRef = useRef()
     let login = true;
 
     let { path } = useRouteMatch()
@@ -20,6 +35,20 @@ export default function Profile() {
 
     if (!login) return <Redirect to="/" />
 
+    function _fileChange(e) {
+        if (e.currentTarget.files[0]) {
+            let formData = new FormData();
+            formData.append('avatar', e.currentTarget.files[0])
+
+            userApi.updateAvatar(formData)
+                .then(res => {
+                    if (res.data) {
+                        auth.loginAction(res.data)
+                    }
+                })
+        }
+    }
+
 
     return (
         <main className="profile" id="main">
@@ -27,7 +56,8 @@ export default function Profile() {
                 <div className="top-info">
                     <div className="avatar">
                         {/* <span class="text">H</span> */}
-                        <img src="/img/avatar-lg.png" alt="" />
+                        <img src={auth.login.avatar?.link || "/img/avatar-default.png"} alt="" />
+                        <input type="file" style={{ display: 'none' }} style={styles.inputFile} ref={avatarRef} onChange={_fileChange} />
                         <div className="camera" />
                     </div>
                     <div className="name">{auth.login.name}</div>

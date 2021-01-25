@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-export default function Gallery() {
+export default function Gallery({ list = [] }) {
 
     useEffect(() => {
         let $ = window.$;
@@ -52,20 +52,9 @@ export default function Gallery() {
                 <h2 className="main-title">Chúng ta là một team</h2>
             </div>
             <div className="list">
-                <img data-flickity-lazyload="img/img_team1.png" alt="" />
-                <img data-flickity-lazyload="img/img_team2.png" alt="" />
-                <img data-flickity-lazyload="img/img_team3.png" alt="" />
-                <img data-flickity-lazyload="img/img_team4.png" alt="" />
-                <img data-flickity-lazyload="img/img_team3.png" alt="" />
-                <img data-flickity-lazyload="img/img_team4.png" alt="" />
-                <img data-flickity-lazyload="img/img_team1.png" alt="" />
-                <img data-flickity-lazyload="img/img_team2.png" alt="" />
-                <img data-flickity-lazyload="img/img_team3.png" alt="" />
-                <img data-flickity-lazyload="img/img_team4.png" alt="" />
-                <img data-flickity-lazyload="img/img_team3.png" alt="" />
-                <div className="item carousel-cell">
-                    <img data-flickity-lazyload="img/img_team4.png" alt="" />
-                </div>
+                {
+                    list.map((e, i) => <img key={i} data-flickity-lazyload={e} alt="" />)
+                }
             </div>
             <div className="controls">
                 <div className="btn_ctr prev" />

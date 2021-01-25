@@ -1,7 +1,7 @@
 # Token dùng để test
 @TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmNmM2M1NTI1Mjk0MTI4NTAzOGUwY2EiLCJlbWFpbCI6InRhaWh0MjIxQGdtYWlsLmNvbSIsInJ1bGUiOltdLCJleHBpcmVkX2F0IjoxNjQyNjc1ODU1NDE5LCJleHBpcmVkX2luIjozMTUzNjAwMDAwMCwiaWF0IjoxNjExMTM5ODU1LCJleHAiOjE2NDI2NzU4NTV9.ihhhAgpmZbS8F1D08pDYj68uSmVjgujIvNhRHvGiFjA
-# @DOMAIN = http://cfd-reactjs.herokuapp.com
-@DOMAIN = http://localhost:8888
+@DOMAIN = http://cfd-reactjs.herokuapp.com
+# @DOMAIN = http://localhost:8888
 
 # Token dùng để test khác
 @TOKEN_DEMO = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDA4MzExNDVlZjMwNzI3MzI3YTk0NjEiLCJlbWFpbCI6ImFiY0BnbWFpbC5jb20iLCJydWxlIjpbXSwiZXhwaXJlZF9hdCI6MTY0Mjg1OTI1MjE4OSwiZXhwaXJlZF9pbiI6MzE1MzYwMDAwMDAsImlhdCI6MTYxMTMyMzI1MiwiZXhwIjoxNjQyODU5MjUyfQ.UDet8ifrAfBrMOV2nFqPfmbifyL5OgXzuQBz4UjpDlI
@@ -62,6 +62,17 @@ Content-Type: application/json
 Authorization: Bearer {{TOKEN}}
 
 
+####
+POST {{DOMAIN}}/elearning/v4/profile/update
+Content-Type: application/json
+Authorization: Bearer {{TOKEN_DEMO}}
+
+{
+    "name": "ABC",
+    "phone": "23423847",
+    "fb": "abvc",
+    "skype": "asdf"
+}
 
 ###### Lấy dữ liệu cho trang home
 GET {{DOMAIN}}/elearning/v4/home

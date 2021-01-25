@@ -91,7 +91,7 @@ export default function Review({ list }) {
                             <div className="text">
                                 {
                                     list.map((e, index) => (
-                                        <div className={`ct ct-${index + 1} ${index === 0 ? 'active' : ''}`}>
+                                        <div key={index} className={`ct ct-${index + 1} ${index === 0 ? 'active' : ''}`}>
                                             <div className="info">
                                                 <div className="name">
                                                     <h4>{e.name}</h4>
@@ -115,8 +115,8 @@ export default function Review({ list }) {
                             <div className="images">
                                 <div className="list" >
                                     {
-                                        list.map(e => (
-                                            <div className="carousel-cell">
+                                        list.map((e, i) => (
+                                            <div className="carousel-cell" key={i}>
                                                 <div className="img">
                                                     <picture>
                                                         <source media="(max-width: 767px)" srcSet="img/Intersect.png" />

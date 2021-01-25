@@ -39,15 +39,22 @@ export default function Course(props) {
                     <p className="des">
                         {props.short_description}
                     </p>
-                </div>
-                <div className="bottom">
+                    <div className="bottom">
+                    </div>
                     <div className="teacher">
                         <div className="avatar">
                             <img src={props.teacher.avatar?.thumbnail?.['thumbnail-1'] || props.teacher.avatar.link} alt="" />
                         </div>
                         <div className="name">{props.teacher.title}</div>
                     </div>
-                    <Link to={`/dang-ky/${props.slug}`} className="register-btn">Đăng Ký</Link>
+                    {
+                        props.course_status === 'sap-khai-gian' ?
+                            <Link to={`/dang-ky/${props.slug}`} className="register-btn">Đăng Ký</Link>
+                            :
+                            <Link to={`/chi-tiet/${props.slug}`} className="register-btn">Chi tiết</Link>
+
+                    }
+
                 </div>
             </div>
         </div>

@@ -1,27 +1,27 @@
 import React from 'react'
+import userApi from '../../../api/userApi';
+import { useAuth } from '../../../core/hook/useAuth';
 import useFormValidate from '../../../core/hook/useFormValidate';
 
 export default function Info() {
+    let auth = useAuth()
 
     let { form, error, inputChange, submit } = useFormValidate({
-        username: '',
-        phone: '',
-        email: '',
-        fb: '',
-        payment: 'chuyen-khoan',
-        note: ''
+
+        name: auth.login.name,
+        phone: auth.login.phone,
+        fb: auth.login.fb,
+        skype: auth.login.skype,
     }, {
         rule: {
-            username: {
+            name: {
                 required: true
             },
             phone: {
                 required: true,
                 pattern: 'phone'
             },
-            email: {
-                pattern: 'email'
-            },
+
             fb: {
                 pattern: /https?:\/\/(www\.)?facebook.com\/[-a-zA-Z0-9@:%._\+~#=]{1,256}/
                 // pattern: 'url'
@@ -41,7 +41,13 @@ export default function Info() {
     function _btnCLick() {
         let error = submit();
         if (Object.keys(error).length === 0) {
-            alert('thanh cong')
+            userApi.update(form)
+                .then(res => {
+                    if (res.data) {
+                        alert('Cập nhật thông tin thành công')
+                        auth.loginAction(res.data)
+                    }
+                })
         }
     }
 
@@ -51,7 +57,7 @@ export default function Info() {
             {/* <Prompt message="Are you sure you want to leave?" /> */}
             <label>
                 <p>Họ và tên<span>*</span></p>
-                <input type="text" placeholder="Nguyễn Văn A" name="username" onChange={inputChange} value={form.username} />
+                <input type="text" placeholder="Nguyễn Văn A" name="name" onChange={inputChange} value={form.name} />
                 {
                     error.username && <p className="error-text">{error.username}</p>
                 }
@@ -65,10 +71,8 @@ export default function Info() {
             </label>
             <label>
                 <p>Email<span>*</span></p>
-                <input defaultValue="vuong.dang@dna.vn" type="text" name="email" onChange={inputChange} value={form.email} />
-                {
-                    error.email && <p className="error-text">{error.email}</p>
-                }
+                <input type="text" name="email" onChange={inputChange} disabled value={auth.login.email} />
+
             </label>
             <label>
                 <p>Facebook<span>*</span></p>

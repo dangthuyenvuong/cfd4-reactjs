@@ -1,11 +1,18 @@
 import { CircularProgress } from '@material-ui/core';
 import React, { useEffect, useState } from 'react'
-import { useRouteMatch } from 'react-router-dom';
+import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 import pageApi from '../../api/pageApi';
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import LoadingApi from '../../components/LoadingApi';
 import useFormValidate from '../../core/hook/useFormValidate';
+
+
+/**
+ * lấy từ local hoặc session storage
+ * nhận vào init value là data hoặc function có return
+ */
+
 
 const style = {
     inputError: { color: 'red', fontSize: 14, paddingLeft: 230, marginTop: -20 }
@@ -16,10 +23,11 @@ export default function Register() {
     let [loading, setLoading] = useState(false);
     let [course, setCourse] = useState()
 
-    let routerMath = useRouteMatch();
+    let routerMatch = useRouteMatch();
+    let param = useLocation()
 
     useEffect(async () => {
-        let course = await pageApi.course_detail(routerMath.params.slug)
+        let course = await pageApi.course_detail(routerMatch.params.slug)
         if (course.data) {
             setCourse(course.data)
         } else {
