@@ -13,5 +13,15 @@ export default {
     courses: () => {
         return fetch(`${domain}/elearning/v4/courses`)
             .then(res => res.json())
+    },
+    contact: (data) => {
+        return fetch(`${domain}/elearning/v4/contact`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
     }
 }

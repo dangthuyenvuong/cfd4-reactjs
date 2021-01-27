@@ -1,13 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { useDelayLink } from '../../../core/AppProvider'
 
 export default function Banner() {
+    let delayLink = useDelayLink();
     return (
         <div className="banner jarallax">
             <div className="container">
                 <div className="content">
                     <h2 className="title">Thực Chiến</h2>
                     <h2 className="title">Tạo ra sản phẩm có giá trị</h2>
-                    <div className="btn main round">KHÓA HỌC</div>
+                    <Link onClick={delayLink} to="/khoa-hoc" className="btn main round">KHÓA HỌC</Link>
                 </div>
             </div>
             <div className="jarallax-img">

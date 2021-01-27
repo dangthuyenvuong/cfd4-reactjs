@@ -16,11 +16,10 @@ import Contact from './pages/contact';
 import Demo from './pages/demo';
 import PopupLogin from './components/PopupLogin';
 import PopupRegister from './components/PopupRegister';
-import Loading from './components/Loading';
 import Team from './pages/team';
 import React, { useRef } from 'react';
-import AuthProvider from './core/hook/useAuth';
 import PrivateRouter from './core/PrivateRouter';
+import AppProvider from './core/AppProvider'
 import Courselist from './pages/Courselist';
 
 
@@ -33,6 +32,7 @@ function App() {
   function openPopupRegister() {
     refLogin.current.style.display = 'none'
     refRegister.current.style.display = 'flex'
+
   }
 
   function closePopupRegister() {
@@ -48,29 +48,24 @@ function App() {
     refLogin.current.style.display = 'none'
   }
 
-  return <AuthProvider>
-    <Context.Provider value={{ openPopupLogin, closePopupLogin, openPopupRegister, closePopupRegister }}>
-      <BrowserRouter>
-        <PopupLogin ref={refLogin} />
-        <PopupRegister ref={refRegister} />
-        <Header />
-        <Loading />
-        <Switch>
-          <PrivateRouter path="/thong-tin-ca-nhan" component={Profile} />
-          <PrivateRouter path="/dang-ky/:slug" component={Register} />
-          <Route path="/team" component={Team} />
-          <Route path="/khoa-hoc" component={Courselist} />
-          <Route path="/lien-he" component={Contact} />
-          <Route path="/du-an" component={Project} />
-          <Route path="/chi-tiet/:slug" component={Detail} />
-          <Route path="/" exact component={Home} />
-          <Route component={Page404} />
-        </Switch>
+  return <AppProvider store={{ openPopupLogin, closePopupLogin, openPopupRegister, closePopupRegister }}>
+    <PopupLogin ref={refLogin} />
+    <PopupRegister ref={refRegister} />
+    <Header />
+    <Switch>
+      <PrivateRouter path="/thong-tin-ca-nhan" component={Profile} />
+      <PrivateRouter path="/dang-ky/:slug" component={Register} />
+      <Route path="/team" component={Team} />
+      <Route path="/khoa-hoc" component={Courselist} />
+      <Route path="/lien-he" component={Contact} />
+      <Route path="/du-an" component={Project} />
+      <Route path="/chi-tiet/:slug" component={Detail} />
+      <Route path="/" exact component={Home} />
+      <Route component={Page404} />
+    </Switch>
 
-        <Footer />
-      </BrowserRouter>
-    </Context.Provider>
-  </AuthProvider>;
+    <Footer />
+  </AppProvider>;
   // return <Register />;
 
 }

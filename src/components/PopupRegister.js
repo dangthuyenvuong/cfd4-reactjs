@@ -1,6 +1,7 @@
 import React, { useContext, useRef } from 'react'
 import reactDOM from 'react-dom'
 import { Context } from '../App'
+import { useAppContext } from '../core/AppProvider'
 import { useAuth } from '../core/hook/useAuth'
 import useFormValidate from '../core/hook/useFormValidate'
 
@@ -44,7 +45,7 @@ function PopupRegister(props, ref) {
             }
         }
     })
-    let context = useContext(Context)
+    let context = useAppContext();
 
     let auth = useAuth();
 

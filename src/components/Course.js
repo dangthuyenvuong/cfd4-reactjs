@@ -1,12 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import img1 from '../assets/img/img1.png'
+import { useDelayLink } from '../core/AppProvider'
 
 export default function Course(props) {
+
+    let delayLink = useDelayLink()
+
     return (
         <div className="col-md-4 course">
             <div className="wrap">
-                <Link className="cover" to={`/chi-tiet/${props.slug}`}>
+                <Link onClick={delayLink} className="cover" to={`/chi-tiet/${props.slug}`}>
                     <img src={props.thumbnail.link} alt="" />
                     {
                         props.course_status === 'sap-khai-gian' ?
@@ -33,14 +37,17 @@ export default function Course(props) {
                     </div>
                 </Link>
                 <div className="info">
-                    <Link className="name" to={`/chi-tiet/${props.slug}`}>
+                    <Link onClick={delayLink} className="name" to={`/chi-tiet/${props.slug}`}>
                         {props.title}
                     </Link>
                     <p className="des">
                         {props.short_description}
                     </p>
-                    <div className="bottom">
-                    </div>
+
+
+
+                </div>
+                <div className="bottom">
                     <div className="teacher">
                         <div className="avatar">
                             <img src={props.teacher.avatar?.thumbnail?.['thumbnail-1'] || props.teacher.avatar.link} alt="" />
@@ -49,12 +56,11 @@ export default function Course(props) {
                     </div>
                     {
                         props.course_status === 'sap-khai-gian' ?
-                            <Link to={`/dang-ky/${props.slug}`} className="register-btn">Đăng Ký</Link>
+                            <Link onClick={delayLink} to={`/dang-ky/${props.slug}`} className="register-btn">Đăng Ký</Link>
                             :
-                            <Link to={`/chi-tiet/${props.slug}`} className="register-btn">Chi tiết</Link>
+                            <Link onClick={delayLink} to={`/chi-tiet/${props.slug}`} className="register-btn">Chi tiết</Link>
 
                     }
-
                 </div>
             </div>
         </div>

@@ -57,7 +57,10 @@ export default function useFormValidate(initialValue, validate) {
         }
 
         for (let i in errorObject) {
-            document.querySelector(`[name="${i}"]`).classList.add('error-input')
+            let input = document.querySelector(`[name="${i}"]`);
+            if (input) {
+                input.classList.add('error-input')
+            }
         }
         setError(errorObject);
         return errorObject
@@ -71,3 +74,5 @@ export default function useFormValidate(initialValue, validate) {
         submit
     }
 }
+
+

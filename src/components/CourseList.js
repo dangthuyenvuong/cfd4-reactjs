@@ -8,7 +8,7 @@ export default function CourseList({ offline = [], online = [] }) {
         <>
             <section className="section-courseoffline">
                 <div className="container">
-                    <p class="top-des">
+                    <p className="top-des">
                         <strong>Chào mừng bạn đến với CFD</strong>!<br />
                         Nơi có những khóa học thực chiến Front-End Dev và UX/UI Design, kết nối và chia sẻ kinh nghiệm giúp bạn có đầy đủ kỹ năng thực tế để tạo ra những sản phẩm sáng tạo, tinh tế và phù hợp.
 

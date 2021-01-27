@@ -4,6 +4,7 @@ import { Context } from '../App'
 import { useAuth } from '../core/hook/useAuth'
 import useFormValidate from '../core/hook/useFormValidate'
 import userApi from '../api/userApi'
+import { useAppContext } from '../core/AppProvider'
 
 const styles = {
     errorText: {
@@ -59,7 +60,7 @@ function PopupLogin(props, ref) {
         }
     }
 
-    let context = useContext(Context)
+    let context = useAppContext();
 
     return reactDOM.createPortal(
         <div className="popup-form popup-login" ref={ref} style={{ display: 'none' }}>

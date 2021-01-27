@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Route } from 'react-router-dom'
-import { Context } from '../App'
+import { useAppContext } from './AppProvider'
 import { useAuth } from './hook/useAuth'
 
 export default function PrivateRouter(props) {
     let auth = useAuth()
-    let popupContext = useContext(Context)
+    let popupContext = useAppContext()
     useEffect(() => {
         if (!auth.login) {
             popupContext.openPopupLogin();

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { Context } from '../App';
+import { useAppContext, useDelayLink } from '../core/AppProvider';
 import { useAuth } from '../core/hook/useAuth';
 
 let $ = window.$;
@@ -26,27 +27,10 @@ export default function Header() {
             }
         });
     }, [])
-    let history = useHistory();
-    function delayLink(e) {
-        e.preventDefault();
-        let payloading = document.querySelector('.pageLoading');
-        let div = payloading.querySelector('.loading')
 
+    let delayLink = useDelayLink();
 
-        let scale = Math.sqrt(Math.pow(window.outerHeight, 2) + Math.pow(window.outerWidth, 2)) / 100 * 2
-        div.style.transform = `translate(-50%, -50%) scale(${scale})`
-        div.style.left = `${e.clientX}px`
-        div.style.top = `${e.clientY}px`
-        setTimeout(() => {
-            history.push(e.target.href?.replace(window.location.origin, '') || '/')
-            $('.overlay_nav').trigger('click')
-        }, 300)
-        setTimeout(() => {
-            div.style.transform = `translate(-50%, -50%) scale(${0})`
-        }, 600)
-    }
-
-    let context = useContext(Context)
+    let context = useAppContext();
 
     let auth = useAuth();
 
@@ -85,13 +69,13 @@ export default function Header() {
                                     <div className="sub">
                                         <Link onClick={delayLink} to="/thong-tin-ca-nhan/khoa-hoc">Khóa học của tôi</Link>
                                         <Link onClick={delayLink} to="/thong-tin-ca-nhan">Thông tin tài khoản</Link>
-                                        <a onClick={auth.logout}>Đăng xuất</a>
+                                        <a href="#" onClick={auth.logout}>Đăng xuất</a>
                                     </div>
                                 </div>
                             ) :
                                 <div className="not-login bg-none">
                                     <a href="#" className="btn-register" onClick={context.openPopupLogin}>Đăng nhập</a>
-                                    <a href="login.html" className="btn main btn-open-login">Đăng ký</a>
+                                    <a href="#" className="btn main btn-open-login" onClick={context.openPopupRegister}>Đăng ký</a>
                                 </div>
                         }
                     </div>
