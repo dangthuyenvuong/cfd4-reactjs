@@ -2,25 +2,29 @@ import React, { useEffect, useState } from 'react'
 import LoadingApi from '../../components/LoadingApi';
 import CourseList from '../../components/CourseList';
 import pageApi from '../../api/pageApi';
+import { useDispatch, useSelector } from 'react-redux';
+import { homeUpdateData } from '../../redux/actions/homeAction';
 
 export default () => {
 
-    let [state, setState] = useState();
+    let home = useSelector(state => state.home)
+    const dispatch = useDispatch()
 
     useEffect(async () => {
-
-        let res = await pageApi.courses()
-        setState(res)
+        if (home.loading) {
+            let res = await pageApi.home()
+            dispatch(homeUpdateData(res))
+        }
 
     }, [])
 
-    if (!state) return <LoadingApi />
+    if (home.loading) return <LoadingApi />
 
 
     return (
         <main className="homepage" id="main">
 
-            <CourseList online={state.online} offline={state.offline} />
+            <CourseList online={home.online} offline={home.offline} />
 
         </main>
     )

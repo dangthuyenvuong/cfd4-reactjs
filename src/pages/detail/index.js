@@ -6,6 +6,8 @@ import LoadingApi from '../../components/LoadingApi'
 import Accordion from './components/Accordion'
 import Teacher from './components/Teacher'
 import Course from '../../components/Course'
+import { useDispatch, useSelector } from 'react-redux'
+import { addCourse } from '../../redux/actions/courseAction'
 
 let $ = window.$
 
@@ -14,17 +16,29 @@ export default function Detail() {
     let routerMath = useRouteMatch();
     let [state, setState] = useState()
 
+
+    const courses = useSelector(state => state.courses)
+    const dispatch = useDispatch()
+
     useEffect(async () => {
         // let course = await pageApi.course_detail(routerMath.params.slug)
-        let [course, courseRedlated] = await Promise.all([
-            pageApi.course_detail(routerMath.params.slug),
-            courseApi.related(routerMath.params.slug)
-        ])
-        if (course.data) {
-            setState({ course: course.data, courseRelated: courseRedlated.data })
-        } else {
-            setState('notfound')
+
+        if (!(routerMath.params.slug in courses)) {
+            let [course, courseRedlated] = await Promise.all([
+                pageApi.course_detail(routerMath.params.slug),
+                courseApi.related(routerMath.params.slug)
+            ])
+            if (course.data) {
+                dispatch(addCourse({
+                    course: course.data,
+                    courseRelated: courseRedlated.data
+                }))
+                // setState({ course: course.data, courseRelated: courseRedlated.data })
+            }
         }
+
+
+
 
 
         function courseDetailAccordion() {
@@ -49,10 +63,10 @@ export default function Detail() {
 
 
 
-    if (!state) return <LoadingApi />
-    if (state === 'notfound') return <LoadingApi>Khoá học không tồn tại</LoadingApi>
+    if (!(routerMath.params.slug in courses)) return <LoadingApi />
+    // if (state === 'notfound') return <LoadingApi>Khoá học không tồn tại</LoadingApi>
 
-    let { course, courseRelated } = state;
+    let { course, courseRelated } = courses[routerMath.params.slug];
 
     let money = new Intl.NumberFormat('vn').format(course.money)
     return (

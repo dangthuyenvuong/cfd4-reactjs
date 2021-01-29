@@ -5,6 +5,8 @@ import { useAuth } from '../core/hook/useAuth'
 import useFormValidate from '../core/hook/useFormValidate'
 import userApi from '../api/userApi'
 import { useAppContext } from '../core/AppProvider'
+import { useDispatch } from 'react-redux'
+import { login } from '../redux/actions/userAction'
 
 const styles = {
     errorText: {
@@ -41,6 +43,7 @@ function PopupLogin(props, ref) {
     })
 
     let auth = useAuth();
+    let dispatch = useDispatch()
 
     async function _btnClick(e) {
         e.preventDefault();
@@ -50,7 +53,8 @@ function PopupLogin(props, ref) {
 
             let res = await userApi.login(form)
             if (res.data) {
-                auth.loginAction(res.data)
+                dispatch(login(res.data))
+                // auth.loginAction(res.data)
                 context.closePopupLogin()
                 // ........
             }

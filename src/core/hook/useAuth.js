@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 
 const Context = React.createContext({})
@@ -38,7 +39,11 @@ export default function AuthProvider({ children }) {
 }
 
 export function useAuth() {
-    return useContext(Context)
+    // return useContext(Context)
+
+    let user = useSelector(state => state.user);
+
+    return user;
 }
 
 export function addToken(data) {

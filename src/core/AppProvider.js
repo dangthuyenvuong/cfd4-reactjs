@@ -2,14 +2,19 @@ import React, { useContext } from 'react'
 import {
     BrowserRouter, useHistory,
 } from 'react-router-dom'
-import AuthProvider from './hook/useAuth'
 import Loading from './Loading';
+
+
+
+
+import store from '../redux/store'
+import { Provider } from 'react-redux'
 
 export const Context = React.createContext({});
 
 let $ = window.$
 
-function AppProvider({ children, store }) {
+function AppProvider({ children, value }) {
 
     let history = useHistory();
     function delayLink(e) {
@@ -32,12 +37,13 @@ function AppProvider({ children, store }) {
     }
 
     return (
-        <Context.Provider value={{ ...store, delayLink }}>
-            <AuthProvider>
+        <Provider store={store} >
+            <Context.Provider value={{ ...value, delayLink }}>
                 <Loading />
                 {children}
-            </AuthProvider>
-        </Context.Provider>
+            </Context.Provider>
+        </Provider>
+
     )
 }
 

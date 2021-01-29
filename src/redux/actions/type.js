@@ -1,0 +1,16 @@
+
+export const COUNT_INCREMENT = 'COUNT_INCREMENTT'
+export const COUNT_DECREMENT = 'COUNT_DECREMENT'
+
+
+
+export const HOME_UPDATE_DATA = 'HOME_UPDATE_DATA'
+
+export const COURSE_ADD = 'COURSE_ADD'
+
+
+
+export const USER = {
+    LOGIN: 'USER_LOGIN',
+    UPDATE_INFO: 'USER_UPDATE_INFO'
+}

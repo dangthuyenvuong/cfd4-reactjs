@@ -9,14 +9,22 @@ import Form from './components/Form'
 import LoadingApi from '../../components/LoadingApi'
 import CourseList from '../../components/CourseList'
 import pageApi from '../../api/pageApi'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchHome, homeUpdateData } from '../../redux/actions/homeAction'
 
 export default function Home() {
 
-    let [state, setState] = useState();
-    useEffect(async () => {
+    // let [state, setState] = useState();
+    let home = useSelector(state => state.home)
+    const dispatch = useDispatch()
 
-        let res = await pageApi.home()
-        setState(res)
+    useEffect(async () => {
+        if (home.loading) {
+            // let res = await pageApi.home()
+            // dispatch(homeUpdateData(res))
+            dispatch(fetchHome())
+        }
+
 
 
         // fetch('http://cfd-reactjs.herokuapp.com/elearning/v4/home')
@@ -38,12 +46,12 @@ export default function Home() {
         //     })
     }, [])
 
-    if (!state) return <LoadingApi />
+    if (home.loading) return <LoadingApi />
 
     return (
         <main className="homepage" id="main">
             <Banner />
-            <CourseList offline={state.offline} online={state.online} />
+            <CourseList offline={home.offline} online={home.online} />
 
             <Special />
             {/* <section class="section-3">
@@ -62,8 +70,8 @@ export default function Home() {
                 </div>
             </div>
         </section> */}
-            <Review list={state.review} />
-            <Gallery list={state.gallery} />
+            <Review list={home.review} />
+            <Gallery list={home.gallery} />
             <Form />
         </main>
 

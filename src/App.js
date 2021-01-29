@@ -23,6 +23,7 @@ import AppProvider from './core/AppProvider'
 import Courselist from './pages/Courselist';
 
 
+
 export const Context = React.createContext({});
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
     refLogin.current.style.display = 'none'
   }
 
-  return <AppProvider store={{ openPopupLogin, closePopupLogin, openPopupRegister, closePopupRegister }}>
+  return <AppProvider value={{ openPopupLogin, closePopupLogin, openPopupRegister, closePopupRegister }}>
     <PopupLogin ref={refLogin} />
     <PopupRegister ref={refRegister} />
     <Header />
@@ -60,6 +61,7 @@ function App() {
       <Route path="/lien-he" component={Contact} />
       <Route path="/du-an" component={Project} />
       <Route path="/chi-tiet/:slug" component={Detail} />
+      <Route path="/demo" exact component={Demo} />
       <Route path="/" exact component={Home} />
       <Route component={Page404} />
     </Switch>
