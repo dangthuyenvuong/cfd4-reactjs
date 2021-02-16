@@ -7,6 +7,7 @@ import { useAuth } from '../core/hook/useAuth';
 let $ = window.$;
 
 export default function Header() {
+    console.log('Header render')
 
     useEffect(() => {
 
